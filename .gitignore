@@ -6,3 +6,4 @@ access.log
 log.log
 error.log
 debug.log
+.eslintcache
