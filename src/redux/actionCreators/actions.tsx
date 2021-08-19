@@ -71,14 +71,11 @@ export const putTag = (body: Body): RequestPostPutFlashAction<'PUT_TAG'> => {
   };
 };
 
-export const postTag = (body: Body): RequestPostPutFlashAction<'POST_TAG'> => {
-  console.log('post');
-  return {
-    type: POST_TAG,
-    url: 'tag',
-    method: POST,
-    isFlash: true,
-    body,
-    requestApi: true,
-  };
-};
+export const postTag = (body: Body): RequestPostPutFlashAction<'POST_TAG'> => ({
+  type: POST_TAG,
+  url: 'tag',
+  method: POST,
+  isFlash: true,
+  body,
+  requestApi: true,
+});
