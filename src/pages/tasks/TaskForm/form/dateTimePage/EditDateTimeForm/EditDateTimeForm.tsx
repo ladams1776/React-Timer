@@ -62,9 +62,7 @@ const EditDateTimeForm: React.FC<EditDateTimeFormProp> = ({ editDateTime, taskId
                 );
               }}
             </Field>
-            <div className={styles.submitContainer}>
-              <Button type="submit" className={cn({ [styles.submit]: true, ['hide']: true })} value="Submit Form" disabled={submitting || pristine} />
-            </div>
+            <Button type="submit" className={cn({ [styles.submit]: true })} value="Submit Form" disabled={submitting || pristine} />
           </form>
         );
       }}
