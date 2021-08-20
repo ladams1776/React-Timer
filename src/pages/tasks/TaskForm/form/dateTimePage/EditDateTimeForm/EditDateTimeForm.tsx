@@ -4,10 +4,10 @@ import { Field, Form } from 'react-final-form';
 import { minSecValidator, utcFormatValidator } from 'forms/validators';
 import { Button } from 'components';
 import useSubmit from './useSubmit';
-
-import styles from './EditDateTimeForm.module.css';
 import { EditDateTimeInterface } from 'interfaces/pages/tasks/Task';
 import formatMinsAndSecsForDisplay from 'utils/formatters/formatMinsAndSecsForDisplay';
+import useFullMode from 'contexts/hooks/useFullMode';
+import styles from './EditDateTimeForm.module.css';
 
 interface EditDateTimeFormProp {
   editDateTime: EditDateTimeInterface;
@@ -18,6 +18,8 @@ interface EditDateTimeFormProp {
 const EditDateTimeForm: React.FC<EditDateTimeFormProp> = ({ editDateTime, taskId, setIsShowingEditDateTimeForm }) => {
   const onSubmit = useSubmit(taskId, setIsShowingEditDateTimeForm);
   const minsAndSecs = formatMinsAndSecsForDisplay(editDateTime.minutes);
+
+  const { isFullMode } = useFullMode();
 
   return (
     <Form
@@ -61,7 +63,7 @@ const EditDateTimeForm: React.FC<EditDateTimeFormProp> = ({ editDateTime, taskId
               }}
             </Field>
             <div className={styles.submitContainer}>
-              <Button type="submit" className={styles.submit} value="Submit Form" disabled={submitting || pristine} />
+              <Button type="submit" className={cn({ [styles.submit]: true, ['hide']: true })} value="Submit Form" disabled={submitting || pristine} />
             </div>
           </form>
         );
