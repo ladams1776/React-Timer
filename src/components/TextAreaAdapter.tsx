@@ -1,7 +1,7 @@
 import React, { ReactChildren } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Field } from 'react-final-form';
-
+import useFullMode from 'contexts/hooks/useFullMode';
 interface AdapterProp {
   input: {
     onChange: (event: any) => void;
@@ -15,10 +15,23 @@ interface TextAreaAdapterProp {
   children: ReactChildren;
 }
 
-const toolbar = 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help';
+// const toolbar = 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help';
 
 export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
   const { onChange, value } = rest.input;
+  const { isFullMode } = useFullMode();
+
+  const toolbar = isFullMode
+    ? ''
+    : 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help';
+
+  const plugins = isFullMode
+    ? []
+    : ['advlist autolink lists link image charmap print preview anchor', 'searchreplace visualblocks code fullscreen', 'insertdatetime media table paste code help wordcount'];
+
+    const height = isFullMode
+    ? '100vh'
+    : '60vh';
 
   return (
     <Editor
@@ -26,13 +39,9 @@ export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
       test-dataid="textAreaAdapter"
       value={value}
       init={{
-        height: '60vh',
+        height,
         menubar: true,
-        plugins: [
-          'advlist autolink lists link image charmap print preview anchor',
-          'searchreplace visualblocks code fullscreen',
-          'insertdatetime media table paste code help wordcount',
-        ],
+        plugins,
         toolbar,
       }}
       onEditorChange={onChange}
@@ -50,8 +59,7 @@ const TextAreaAdapter: React.FC<TextAreaAdapterProp> = ({ subscription }) => {
     <Field name="description" subscription={subscription}>
       {({ ...rest }) => {
         const { onChange, value } = rest.input;
-
-        return <textarea name="description" onChange={onChange} value={value} rows={15} cols={125} {...rest} />;
+        return <textarea name="description" onChange={onChange} value={value} {...rest} />;
       }}
     </Field>
   );

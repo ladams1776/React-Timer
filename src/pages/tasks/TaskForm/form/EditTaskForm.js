@@ -30,8 +30,10 @@ const EditTaskForm = ({ taskId, className }) => {
   console.log('yes', isFullMode);
 
   return (<div className={className} data-testid="addTaskForm">
-    <DateTimeButton taskId={taskId} />
-    <button onClick={() => setIsFullMode(!isFullMode)}>Hide</button>
+    <div>
+      <DateTimeButton taskId={taskId} />
+      <Button onClick={() => setIsFullMode(!isFullMode)} className={styles.fullMode}><i class="glyphicon glyphicon-expand"></i></Button>
+    </div>
     <Timer />
     <Form
       onSubmit={onSubmit}
@@ -59,7 +61,7 @@ const EditTaskForm = ({ taskId, className }) => {
               </div>
             </div>
 
-            <Field name="description" component={TextAreaAdapter} />
+            <Field name="description" component={TextAreaAdapter}/>
 
             <Button type="submit" className={styles.submit} value="Submit Form" />
 
