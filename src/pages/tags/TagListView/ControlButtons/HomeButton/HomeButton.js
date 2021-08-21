@@ -8,8 +8,8 @@ const HomeButton = () => {
     const { push } = useBrowserHistory();
     return <Button className={cn(styles.buttonAdd, "glyphicon glyphicon-home")}
         onClick={() => {
-            sessionStorage.setItem('LOCATION', '/task/-1');
-            push("/task/-1");
+            sessionStorage.setItem('LOCATION', '/');
+            push("/");
         }} />
 };
 

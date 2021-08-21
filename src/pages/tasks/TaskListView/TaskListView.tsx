@@ -20,8 +20,8 @@ const TaskListView: React.FC<TaskListViewProp> = ({ className, tasks, setTasks, 
   useSmoothScrolling(refs, id, description);
 
   return (
-    <div className={cn(className, styles.task, { [styles.listViewAndTask]: id })} data-testid="list-view">
-      <ul className={styles.taskList}>
+    <div className={cn(className, styles.task, { [styles.listViewAndTask]: id})} data-testid="list-view">
+      <ul className={cn(styles.taskList, {[styles.listViewOnly]: !id })}>
         {tasks.map((task: TaskInterface) => {
           const desc = task._id === id ? description : task.description;
           const ref = refs[task._id];
