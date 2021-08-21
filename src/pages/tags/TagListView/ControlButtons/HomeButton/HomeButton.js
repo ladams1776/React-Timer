@@ -10,6 +10,7 @@ const HomeButton = () => {
         onClick={() => {
             sessionStorage.setItem('LOCATION', '/');
             push("/");
+            window.location.reload();
         }} />
 };
 
