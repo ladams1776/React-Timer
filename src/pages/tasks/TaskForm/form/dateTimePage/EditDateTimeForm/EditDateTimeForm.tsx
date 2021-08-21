@@ -6,9 +6,7 @@ import { Button } from 'components';
 import useSubmit from './useSubmit';
 import { EditDateTimeInterface } from 'interfaces/pages/tasks/Task';
 import formatMinsAndSecsForDisplay from 'utils/formatters/formatMinsAndSecsForDisplay';
-import useFullMode from 'contexts/hooks/useFullMode';
 import styles from './EditDateTimeForm.module.css';
-
 interface EditDateTimeFormProp {
   editDateTime: EditDateTimeInterface;
   taskId: string;
@@ -18,8 +16,6 @@ interface EditDateTimeFormProp {
 const EditDateTimeForm: React.FC<EditDateTimeFormProp> = ({ editDateTime, taskId, setIsShowingEditDateTimeForm }) => {
   const onSubmit = useSubmit(taskId, setIsShowingEditDateTimeForm);
   const minsAndSecs = formatMinsAndSecsForDisplay(editDateTime.minutes);
-
-  const { isFullMode } = useFullMode();
 
   return (
     <Form

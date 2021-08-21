@@ -10,7 +10,6 @@ import TaskListView from './TaskListView/TaskListView';
 import ControlButtons from './TaskListView/ControlButtons/ControlButtons';
 import useFetchAllTasks from 'pages/tasks/hooks/useFetchAllTasks';
 import styles from './TaskPage.module.css';
-import useFullMode from 'contexts/hooks/useFullMode';
 
 
 const TaskPage = ({ match }) => {
@@ -20,13 +19,12 @@ const TaskPage = ({ match }) => {
   const [tasks, setTasks] = React.useState([]);
   useFetchAllTasks(setTasks);
   const refs = useTaskRefs(tasks);
-  const { isFullMode } = useFullMode();
 
   return (
     <TagContextProvider>
       <TimeContextProvider>
         <div className={styles.container} data-testid="container">
-          <div className={cn({ [styles.navBarInnerContainer]: true, ['hide']: isFullMode})}>
+          <div className={cn({ [styles.navBarInnerContainer]: true})}>
             <ControlButtons tasks={tasks} />
           </div>
           <div className={styles.mainInnerContainer}>
