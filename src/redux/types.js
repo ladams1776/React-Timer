@@ -7,6 +7,10 @@ export const DELETE = 'DELETE';
 export const FETCH_TASK_BY_ID = 'FETCH_TASK_BY_ID';
 export const FETCH_TASK_BY_ID_RESPONSE = 'FETCH_TASK_BY_ID_RESPONSE';
 
+// fetchAllTasks
+export const FETCH_ALL_TASKS = 'FETCH_ALL_TASKS';
+export const FETCH_ALL_TASKS_RESPONSE = 'FETCH_ALL_TASKS_RESPONSE';
+
 // putTaskById
 export const PUT_TASK_BY_ID = 'PUT_TASK_BY_ID';
 export const PUT_TASK_BY_ID_RESPONSE = 'PUT_TASK_BY_ID_RESPONSE';

@@ -1,5 +1,5 @@
-import { FETCH_TASK_BY_ID, PUT, PUT_TASK_BY_ID, FETCH_ALL_TAGS, FETCH_TAG_BY_ID, UPDATE_DATE_TIME, PUT_TAG } from "redux/types";
-import { fetchTaskById, putTaskById, fetchAllTags, fetchTagById, putDateTime, putTag } from "../actions";
+import { FETCH_TASK_BY_ID, PUT, PUT_TASK_BY_ID, FETCH_ALL_TAGS, FETCH_TAG_BY_ID, UPDATE_DATE_TIME, PUT_TAG, FETCH_ALL_TASKS } from "redux/types";
+import { fetchTaskById, putTaskById, fetchAllTags, fetchTagById, putDateTime, putTag, fetchAllTasks } from "../actions";
 
 describe('src/redux/actionCreators/__test__/actions.test.js', () => {
     describe('actions.tsx', () => {
@@ -15,6 +15,23 @@ describe('src/redux/actionCreators/__test__/actions.test.js', () => {
 
                 // Act
                 const actual = fetchTaskById(taskId);
+
+                // Assert
+                expect(actual).toEqual(expected);
+            });
+        });
+
+        describe('fetchAllTasks', () => {
+            it('should return expected action.', () => {
+                // Arrange
+                const expected = {
+                    type: FETCH_ALL_TASKS,
+                    url: `tasks`,
+                    requestApi: true,
+                };
+
+                // Act
+                const actual = fetchAllTasks();
 
                 // Assert
                 expect(actual).toEqual(expected);
@@ -121,7 +138,8 @@ describe('src/redux/actionCreators/__test__/actions.test.js', () => {
                     type: PUT_TAG,
                     url: 'tag',
                     method: PUT,
-                    body
+                    body,
+                    isFlash: true
                 };
 
                 // Act

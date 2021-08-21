@@ -1,8 +1,16 @@
-import { PUT, FETCH_ALL_TAGS, FETCH_TASK_BY_ID, PUT_TASK_BY_ID, UPDATE_DATE_TIME, FETCH_TAG_BY_ID, PUT_TAG, POST_TAG, POST } from '../types';
+import { PUT, FETCH_ALL_TAGS, FETCH_TASK_BY_ID, PUT_TASK_BY_ID, UPDATE_DATE_TIME, FETCH_TAG_BY_ID, PUT_TAG, POST_TAG, POST, FETCH_ALL_TASKS } from '../types';
 import { RequestAction, RequestPostPutAction, RequestPostPutFlashAction } from 'interfaces/redux/actions';
 import { EditDateTimeInterface } from 'interfaces/pages/tasks/Task';
 
 // Tasks
+export const fetchAllTasks = (): RequestAction<'FETCH_ALL_TASKS'> => {
+  return {
+    type: FETCH_ALL_TASKS,
+    url: `tasks`,
+    requestApi: true,
+  };
+};
+
 export const fetchTaskById = (taskId: string): RequestAction<'FETCH_TASK_BY_ID'> => {
   return {
     type: FETCH_TASK_BY_ID,
