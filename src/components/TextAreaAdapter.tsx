@@ -1,37 +1,24 @@
 import React, { ReactChildren } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Field } from 'react-final-form';
-import useFullMode from 'contexts/hooks/useFullMode';
 interface AdapterProp {
   input: {
     onChange: (event: any) => void;
     value: string;
   };
 }
-
 interface TextAreaAdapterProp {
   name: string;
   subscription: any;
   children: ReactChildren;
 }
 
-// const toolbar = 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help';
-
 export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
   const { onChange, value } = rest.input;
-  const { isFullMode } = useFullMode();
 
-  const toolbar = isFullMode
-    ? ''
-    : 'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help';
+  const toolbar = 'fullscreen | undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help';
+  const plugins = ['advlist autolink lists link image charmap print preview anchor', 'searchreplace visualblocks code fullscreen', 'insertdatetime media table paste code help wordcount'];
 
-  const plugins = isFullMode
-    ? []
-    : ['advlist autolink lists link image charmap print preview anchor', 'searchreplace visualblocks code fullscreen', 'insertdatetime media table paste code help wordcount'];
-
-    const height = isFullMode
-    ? '100vh'
-    : '60vh';
 
   return (
     <Editor
