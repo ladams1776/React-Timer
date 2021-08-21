@@ -11,28 +11,27 @@ import { useFetchTags } from '../hooks';
 import useFetchTaskByIdDispatch from '../hooks/useFetchTaskById/useFetchTaskByIdDispatch';
 import useTaskByIdSelector from 'redux/selectors/useTaskByIdSelector';
 import TextAreaAdapter from 'components/TextAreaAdapter';
-
-import styles from './TaskForm.module.css';
 import { Button } from 'components';
 import useFullMode from 'contexts/hooks/useFullMode';
+import ExpandButton from './dateTimePage/expandButton/ExpandButton';
+import styles from './TaskForm.module.css';
 
 const EditTaskForm = ({ taskId, className }) => {
   useFetchTaskByIdDispatch(taskId);
   const task = useTaskByIdSelector();
   const { tags } = task;
-  const { isFullMode, setIsFullMode } = useFullMode();
+  const { isFullMode } = useFullMode();
 
   useFetchTags();
   const projectOptions = useFetchProjectOptions();
 
   const onSubmit = useSubmit();
 
-  console.log('yes', isFullMode);
 
   return (<div className={className} data-testid="addTaskForm">
     <div>
       <DateTimeButton taskId={taskId} />
-      <Button onClick={() => setIsFullMode(!isFullMode)} className={styles.fullMode}><i class="glyphicon glyphicon-expand"></i></Button>
+      <ExpandButton />
     </div>
     <Timer />
     <Form

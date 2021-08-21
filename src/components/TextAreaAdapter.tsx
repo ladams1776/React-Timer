@@ -39,7 +39,7 @@ export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
       test-dataid="textAreaAdapter"
       value={value}
       init={{
-        height:'80vh',
+        height:'60vh',
         menubar: true,
         plugins,
         toolbar,
