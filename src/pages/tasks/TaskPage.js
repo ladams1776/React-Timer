@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 import React from 'react';
 import cn from 'classnames';
 import { useSetCurrentLocation } from 'hooks';

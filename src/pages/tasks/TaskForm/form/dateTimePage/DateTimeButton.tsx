@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-computed-key */
 import React, { useState } from 'react';
 import cn from 'classnames';
 import { Modal, Button } from 'components';
