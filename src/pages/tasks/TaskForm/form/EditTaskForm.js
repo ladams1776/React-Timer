@@ -14,7 +14,7 @@ import TextAreaAdapter from 'components/TextAreaAdapter';
 import { Button } from 'components';
 import useFullMode from 'contexts/hooks/useFullMode';
 import ExpandButton from './dateTimePage/expandButton/ExpandButton';
-import styles from './TaskForm.module.css';
+import styles from './EditTaskForm.module.css';
 
 const EditTaskForm = ({ taskId, className }) => {
   useFetchTaskByIdDispatch(taskId);
@@ -29,7 +29,7 @@ const EditTaskForm = ({ taskId, className }) => {
 
 
   return (<div className={className} data-testid="addTaskForm">
-    <div>
+    <div className={styles.topButtonOutline}>
       <DateTimeButton taskId={taskId} />
       <ExpandButton />
     </div>

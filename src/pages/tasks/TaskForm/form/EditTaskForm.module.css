@@ -1,0 +1,70 @@
+/**
+    Accent: #ff6358;
+    
+    Success: #5ec232;
+    Warning: #fdce3e;
+    Danger: #d51923;
+    Info: #3e80ed;
+**/
+
+.taskForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeInfoContainer {
+  width: 100%;
+  display: flex;
+  z-index: 10000; /* supersede tinyMCE's ridiculous banner */
+}
+
+.innerLeft {
+  margin: 10px 0px 10px 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 50%;
+}
+
+.innerRight {
+  width: 50%;
+}
+
+.dropDown {
+  max-width: 350px;
+  z-index: 2;
+}
+
+.submit,
+.submit:hover {
+  align-self: flex-end;
+  background-color: #2d73f5;
+  border-radius: 4px;
+  height: 50px;
+  border: none;
+  width: 75px;
+  color: white;
+  margin-top: 1em;
+  width: 150px;
+}
+
+.submit:hover {
+  background-color: #275ab9;
+}
+
+.submit:disabled {
+  background-color: rgba(45, 115, 245, 0.45);
+}
+
+.fullMode {
+  font-size: 25px;
+  margin-left: 20px;
+  vertical-align: middle;
+  border-radius: 6px;
+  background-color:rgb(150, 150, 150);
+}
+
+.topButtonOutline {
+  display:flex;
+  flex-direction: row;
+}
