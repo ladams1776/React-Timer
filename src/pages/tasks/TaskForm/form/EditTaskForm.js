@@ -19,15 +19,12 @@ import styles from './EditTaskForm.module.css';
 
 const EditTaskForm = ({ taskId, className }) => {
   useFetchTaskByIdDispatch(taskId);
+  useFetchTags();
   const task = useTaskByIdSelector();
   const { tags } = task;
   const { isFullMode } = useFullMode();
-
-  useFetchTags();
   const projectOptions = useFetchProjectOptions();
-
   const onSubmit = useSubmit();
-
 
   return (<div className={className} data-testid="addTaskForm">
     <div className={styles.topButtonOutline}>

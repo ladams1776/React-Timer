@@ -23,6 +23,7 @@ const useSubmit = (taskId: String, setIsShowingEditDateTimeForm: (isShowing: boo
 
     dispatch(putDateTime(config));
     setIsShowingEditDateTimeForm(false);
+    window.location.reload();
   };
 };
 
