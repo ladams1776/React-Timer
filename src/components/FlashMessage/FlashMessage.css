@@ -19,6 +19,7 @@
     min-width: 200px;
     max-width: 300px;
     padding: 10px;
+    z-index: 10000000000;
 }
 
 .flashMessage.success {
@@ -37,6 +38,13 @@
     background: rgb(84, 0, 2);
 }
 
+.flashMessage.info {
+    background: #3e80ed;
+}
+
+.flashMessage.info:hover {
+    background: #2d73f5;
+}
 .flashMessageIcon {
   flex: 1 1;
   margin: auto;

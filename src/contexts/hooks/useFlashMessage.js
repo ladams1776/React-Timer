@@ -15,7 +15,7 @@ const useFlashMessage = () => {
 
     const setSuccessFlashMessage = useCallback(message => dispatch({ type: SUCCESS, message }), []);
     const setErrorFlashMessage = useCallback(message => dispatch({ type: ERROR, message }), []);
-    const setInfoFlashMessage = useCallback(message => dispatch({ type: INFO }, { message }), []);
+    const setInfoFlashMessage = useCallback(message => dispatch({ type: INFO, message }), []);
     const resetFlashMessage = useCallback(() => dispatch({ type: RESET }), []);
 
     return { ...state, setSuccessFlashMessage, setErrorFlashMessage, setInfoFlashMessage, resetFlashMessage };

@@ -18,9 +18,9 @@ const Main = () => {
             <HashRouter>
               <div className="content">
                 <FlashMessage />
+                <LoadinSpinner />
                 <Route exact path={["/", "/task/:id"]} render={props => <TaskPage {...props} />} />
                 <Route exact path={["/tag", "/tag/:id", "/tags"]} render={props => <TagPage {...props} />} />
-                <LoadinSpinner />
               </div>
             </HashRouter>
           </FullModeContextProvider>

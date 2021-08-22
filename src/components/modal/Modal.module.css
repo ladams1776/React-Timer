@@ -1,5 +1,5 @@
 .modal {
-  z-index: 1000000000;
+  z-index: 100000;
   position: fixed; /* Stay in place */
   left: 0;
   top: 0;
