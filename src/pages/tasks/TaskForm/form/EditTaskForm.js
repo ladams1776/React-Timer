@@ -14,7 +14,7 @@ import useTaskByIdSelector from 'redux/selectors/useTaskByIdSelector';
 import TextAreaAdapter from 'components/TextAreaAdapter';
 import { Button } from 'components';
 import useFullMode from 'contexts/hooks/useFullMode';
-import ExpandButton from './dateTimePage/expandButton/ExpandButton';
+import ExpandButton from './expandButton/ExpandButton';
 import styles from './EditTaskForm.module.css';
 
 const EditTaskForm = ({ taskId, className }) => {
