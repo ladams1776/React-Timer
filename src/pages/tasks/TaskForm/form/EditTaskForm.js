@@ -13,8 +13,6 @@ import useFetchTaskByIdDispatch from '../hooks/useFetchTaskById/useFetchTaskById
 import useTaskByIdSelector from 'redux/selectors/useTaskByIdSelector';
 import TextAreaAdapter from 'components/TextAreaAdapter';
 import { Button } from 'components';
-import useFullMode from 'contexts/hooks/useFullMode';
-import ExpandButton from './expandButton/ExpandButton';
 import styles from './EditTaskForm.module.css';
 
 const EditTaskForm = ({ taskId, className }) => {
@@ -22,14 +20,12 @@ const EditTaskForm = ({ taskId, className }) => {
   useFetchTags();
   const task = useTaskByIdSelector();
   const { tags } = task;
-  const { isFullMode } = useFullMode();
   const projectOptions = useFetchProjectOptions();
   const onSubmit = useSubmit();
 
   return (<div className={className} data-testid="addTaskForm">
     <div className={styles.topButtonOutline}>
       <DateTimeButton taskId={taskId} />
-      <ExpandButton />
     </div>
     <Timer />
     <Form
@@ -45,7 +41,7 @@ const EditTaskForm = ({ taskId, className }) => {
 
             <div className={styles.timeInfoContainer}>
               <div className={styles.innerLeft}>
-                <Field name="project" component="select" className={cn({ ['hide']: isFullMode })}>
+                <Field name="project" component="select">
                   {projectOptions.map(project => (
                     <option value={project.value} key={project.value}>
                       {project.label}
@@ -53,12 +49,12 @@ const EditTaskForm = ({ taskId, className }) => {
                   ))}
                 </Field>
               </div>
-              <div className={cn({ ['hide']: isFullMode, [styles.innerRight]: true})}>
+              <div className={cn({ [styles.innerRight]: true })}>
                 <Field name="tags" tags={tags} component={TagMultiSelect} />
               </div>
             </div>
 
-            <Field name="description" component={TextAreaAdapter}/>
+            <Field name="description" component={TextAreaAdapter} />
 
             <Button type="submit" className={styles.submit} value="Submit Form" />
 
