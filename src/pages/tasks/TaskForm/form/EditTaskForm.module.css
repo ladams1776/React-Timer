@@ -15,7 +15,6 @@
 .timeInfoContainer {
   width: 100%;
   display: flex;
-  z-index: 10000; /* supersede tinyMCE's ridiculous banner */
 }
 
 .innerLeft {
@@ -53,14 +52,6 @@
 
 .submit:disabled {
   background-color: rgba(45, 115, 245, 0.45);
-}
-
-.fullMode {
-  font-size: 25px;
-  margin-left: 20px;
-  vertical-align: middle;
-  border-radius: 6px;
-  background-color:rgb(150, 150, 150);
 }
 
 .topButtonOutline {
