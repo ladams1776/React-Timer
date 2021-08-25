@@ -26,14 +26,16 @@ const EditTaskForm = ({ taskId, className }) => {
   return (<div className={className} data-testid="addTaskForm">
     <div className={styles.topButtonOutline}>
       <DateTimeButton taskId={taskId} />
+      <Timer />
+      <Button type="submit" className={styles.submit} form="editForm" value="Submit" />
     </div>
-    <Timer />
     <Form
       onSubmit={onSubmit}
       initialValues={task}
       render={({ handleSubmit }) => {
         return (
           <form
+            id="editForm"
             data-testid="form"
             onSubmit={handleSubmit}
             className={styles.taskForm}
@@ -55,9 +57,6 @@ const EditTaskForm = ({ taskId, className }) => {
             </div>
 
             <Field name="description" component={TextAreaAdapter} />
-
-            <Button type="submit" className={styles.submit} value="Submit Form" />
-
           </form>)
       }} />
   </div>);

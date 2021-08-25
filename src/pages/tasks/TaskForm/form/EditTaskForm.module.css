@@ -18,11 +18,11 @@
 }
 
 .innerLeft {
-  margin: 10px 0px 10px 2px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 50%;
+  width: 100%;
+  padding: 4px;
 }
 
 .innerRight {
@@ -32,18 +32,40 @@
 .dropDown {
   max-width: 350px;
 }
+select {
+  width: 100%;
+  margin: 5px;
+  height: 38px;
+}
+
+@media only screen and (max-width: 600px) {
+  .timeInfoContainer {
+    flex-direction: column;
+  }
+
+  .innerLeft {
+    width: 100%;
+    flex: 1;
+  }
+
+  .innerRight {
+    width:100%;
+    flex: 1;
+  }
+}
 
 .submit,
 .submit:hover {
   align-self: flex-end;
   background-color: #2d73f5;
   border-radius: 4px;
-  height: 50px;
   border: none;
-  width: 75px;
   color: white;
-  margin-top: 1em;
-  width: 150px;
+  align-self: flex-end;
+  font-size: 12px;
+  width: 45px;
+  height: 45px;
+  margin: 10px 5px;
 }
 
 .submit:hover {

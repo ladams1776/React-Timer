@@ -27,6 +27,7 @@ export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
       value={value}
       init={{
         height:'60vh',
+        width: '100vw',
         menubar: true,
         plugins,
         toolbar,
