@@ -35,7 +35,7 @@ export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
         toolbar,
       }
     : {
-        height: '80vw',
+        height: '50vw',
         width: '100%',
         menubar: true,
         plugins,
