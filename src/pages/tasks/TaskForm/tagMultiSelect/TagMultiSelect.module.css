@@ -1,3 +1,4 @@
 .select {
-    /* margin: 10px 2px 10px 0px; */
+    border: rgba(200,200,200) 2px solid;
+    border-radius: 4px;
 }

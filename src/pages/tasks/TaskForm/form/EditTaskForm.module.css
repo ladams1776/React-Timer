@@ -24,8 +24,9 @@
 }
 
 .innerRight {
-  flex: 1;
-  padding: 10px;
+  flex: 1 1;
+  align-items: center;
+  padding: 4px;
 }
 
 .dropDown {
