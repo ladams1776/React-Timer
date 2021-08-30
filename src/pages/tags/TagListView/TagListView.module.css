@@ -1,8 +1,24 @@
+.tagListHeader {
+  display: flex;
+}
+
 .tagList {
-    margin: 0;
+  margin: 0;
   padding: 0;
   max-width: 200px;
   min-width: 200px;
   overflow-y: scroll;
   height: 100%;
+}
+
+.tag {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+.listViewOnly {
+  max-width: 100%;
+  min-width: 100%;
+  width:100%;
+}
 }

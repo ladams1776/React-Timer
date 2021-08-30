@@ -1,5 +1,5 @@
 .container {
-  height: 700px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -12,21 +12,23 @@
 .mainInnerContainer {
   display: flex;
   flex-direction: row;
-  height: 900px
+  height: 92vh;
 }
 
 .listView {
   overflow-y: scroll;
-  flex: 1;
-  max-width: 200px;
+  min-width: 200px;
+  height: 100%;
 }
 
 @media only screen and (max-width: 900px) {
-  .listView {
+  .listViewAndTask {
     flex: 0;
+    min-width: 0px;
   }
 }
 
 .form {
   flex: 4;
+  /* margin-right: 2em; */
 }
