@@ -25,9 +25,9 @@ const EditTaskForm = ({ taskId, className }) => {
 
   return (<div className={className} data-testid="addTaskForm">
     <div className={styles.topButtonOutline}>
+      <Button type="submit" className={styles.submit} form="editForm" value="Save" />
       <DateTimeButton taskId={taskId} />
       <Timer />
-      <Button type="submit" className={styles.submit} form="editForm" value="Submit" />
     </div>
     <Form
       onSubmit={onSubmit}
