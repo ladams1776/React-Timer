@@ -31,4 +31,5 @@
 .form {
   flex: 4;
   /* margin-right: 2em; */
+  width: 80%;
 }

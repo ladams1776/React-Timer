@@ -44,12 +44,10 @@ select {
   }
 
   .innerLeft {
-    width: 100%;
     flex: 1;
   }
 
   .innerRight {
-    width:100%;
     flex: 1;
   }
 }
