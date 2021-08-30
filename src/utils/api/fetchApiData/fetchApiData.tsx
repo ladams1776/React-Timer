@@ -18,7 +18,9 @@ const fetchApiData = async (url: string, { body, ...settings }: FetchParams, dis
   };
 
   const response = await fetch(`/api/${url}`, config);
-  const data = await response.json();
+  const data = response && await response.json();
+  console.log('url', url)
+  console.log('data', data)
   if (data && response.ok) dispatch(data);
 };
 

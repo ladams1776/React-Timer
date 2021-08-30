@@ -14,10 +14,13 @@ import styles from './TaskPage.module.css';
 
 const TaskPage = ({ match }) => {
   const taskId = match?.params?.id;
-
   useSetCurrentLocation(`/task/${taskId}`);
   const [tasks, setTasks] = React.useState([]);
-  useFetchAllTasks(setTasks);
+  const storageSave = React.useCallback((tasks) => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    setTasks(tasks)
+  }, []);
+  useFetchAllTasks(storageSave);
   const refs = useTaskRefs(tasks);
 
   return (
@@ -28,7 +31,7 @@ const TaskPage = ({ match }) => {
             <ControlButtons tasks={tasks} />
           </div>
           <div className={styles.mainInnerContainer}>
-            <TaskListView tasks={tasks} setTasks={setTasks} refs={refs}
+            <TaskListView tasks={tasks} setTasks={storageSave} refs={refs}
               className={cn(styles.listView, { [styles.listViewAndTask]: taskId})} />
             {(taskId !== undefined && taskId !== "-1")
               ? <EditTaskForm taskId={taskId} className={styles.form} data-testid="addTaskForm" />

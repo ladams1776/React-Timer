@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-computed-key */
-import React from 'react';
+import React, { useEffect } from 'react';
 import cn from 'classnames';
 import PropTypes from "prop-types";
 import { Form, Field } from 'react-final-form'
@@ -16,9 +16,9 @@ import { Button } from 'components';
 import styles from './EditTaskForm.module.css';
 
 const EditTaskForm = ({ taskId, className }) => {
-  useFetchTaskByIdDispatch(taskId);
   useFetchTags();
-  const task = useTaskByIdSelector();
+  useFetchTaskByIdDispatch(taskId);
+  const task = useTaskByIdSelector(taskId);
   const { tags } = task;
   const projectOptions = useFetchProjectOptions();
   const onSubmit = useSubmit();

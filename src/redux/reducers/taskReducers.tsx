@@ -29,6 +29,7 @@ export const fetchTaskByIdReducer = (state = null, action: ResponseAction<'FETCH
 export const responseTaskByIdReducer = (state = null, action: ResponseAction<'FETCH_TASK_BY_ID_RESPONSE', TaskAction>) => {
   switch (action.type) {
     case FETCH_TASK_BY_ID_RESPONSE:
+      localStorage.setItem(action.data._id, JSON.stringify(action.data));
       return action.data;
     default:
       return state;

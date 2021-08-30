@@ -67,7 +67,7 @@ app.listen(3001, () => {
 app.use(morgan('common', {
   stream: fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' })
 }));
-
+app.use(express.static(path.join(__dirname, 'build')));
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(

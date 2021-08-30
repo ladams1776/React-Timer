@@ -19,6 +19,7 @@ const useSubmit = (): ((task: taskDtoInterface) => void) => {
     const { _id, description, project, tags } = task;
     const dateFormatted = getCurrentDateTimeEstFormat();
     const timeTask = hydrateTaskForm(_id, allTags, project, description, dateFormatted, time, tags);
+    localStorage.setItem(_id, JSON.stringify(timeTask));
     dispatch(putTaskById(timeTask));
   };
 };
