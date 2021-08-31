@@ -1,3 +1,7 @@
+.buttonOutline {
+  display: flex;
+}
+
 .navbarHeader {
   display: flex;
 }
@@ -72,7 +76,5 @@
 }
 
 .children {
-  display: inline-flex;
-  flex-direction: column;
   margin: auto 10px;
 }

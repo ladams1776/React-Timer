@@ -10,30 +10,31 @@ const TimerButtons = ({ time, isActive = false, setIsActive, children }) => {
     return <div className={cn("navbar navbar-default")}>
         <div className="container-fluid">
             <div className={styles.navbarHeader}>
-                
-                {isActive && (<Button
-                    className={cn(styles.timerStop, styles.stopIcon, "glyphicon glyphicon-pause")}
-                    title="Stop"
-                    testid="stop"
-                    onClick={toggle} />
-                )}
+                <div className={styles.buttonOutline}>
+                    {isActive && (<Button
+                        className={cn(styles.timerStop, styles.stopIcon, "glyphicon glyphicon-pause")}
+                        title="Stop"
+                        testid="stop"
+                        onClick={toggle} />
+                    )}
 
-                {time !== 0 && !isActive && (<Button
-                    className={cn(styles.timerResume, styles.stopIcon, "glyphicon glyphicon-play")}
-                    title="Resume"
-                    testid="resume"
-                    onClick={() => setIsActive(!isActive)} />
-                )}
+                    {time !== 0 && !isActive && (<Button
+                        className={cn(styles.timerResume, styles.stopIcon, "glyphicon glyphicon-play")}
+                        title="Resume"
+                        testid="resume"
+                        onClick={() => setIsActive(!isActive)} />
+                    )}
 
-                {time === 0 && !isActive && (<Button
-                    className={cn(styles.timerStart, styles.stopIcon, "glyphicon glyphicon-play")}
-                    title="Start"
-                    testid="start"
-                    onClick={toggle} />
-                )}
+                    {time === 0 && !isActive && (<Button
+                        className={cn(styles.timerStart, styles.stopIcon, "glyphicon glyphicon-play")}
+                        title="Start"
+                        testid="start"
+                        onClick={toggle} />
+                    )}
 
-                <div className={styles.children}>
-                    {children}
+                    <div className={styles.children}>
+                        {children}
+                    </div>
                 </div>
             </div>
         </div>
