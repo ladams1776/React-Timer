@@ -21,7 +21,7 @@ describe('putTaskAction', () => {
         putTaskAction(req, resSpy);
 
         // Assert
-        expect(jsonResponse).toBeCalledWith(resSpy, FETCH_TASK_BY_ID_RESPONSE);
+        expect(jsonResponse).toHaveBeenNthCalledWith(1, resSpy, FETCH_TASK_BY_ID_RESPONSE);
         expect(RequestToTaskDto).toBeCalledWith(req);
         expect(TaskService.updateTask).toBeCalledWith(incomingDto, resSpy);
     });
