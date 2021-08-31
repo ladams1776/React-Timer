@@ -1,12 +1,13 @@
 const TaskService = require("../../../../domain/services/tasks/TaskService");
-const jsonResponse = require("../../jsonResponse");
+const jsonResponse = require("../../apiResponse");
+const { FETCH_TASK_BY_ID_RESPONSE } = require("../../reduxTypes");
 const RequestToTaskDto = require("../assemblers/RequestToTaskDto");
-const updateTaskAction = require("../updateTaskAction");
+const putTaskAction = require("../putTaskAction");
 
-jest.mock("../../jsonResponse");
+jest.mock("../../apiResponse");
 jest.mock("../assemblers/RequestToTaskDto");
 
-describe('updateTaskAction', () => {
+describe('putTaskAction', () => {
     it('should invoke TaskService.updateTask, when action invoked', () => {
         // Arrange
         const req = { id: 'reqID' };
@@ -17,10 +18,10 @@ describe('updateTaskAction', () => {
         TaskService.updateTask = jest.fn();
         
         // Act
-        updateTaskAction(req, resSpy);
+        putTaskAction(req, resSpy);
 
         // Assert
-        expect(jsonResponse).toBeCalledWith(resSpy);
+        expect(jsonResponse).toBeCalledWith(resSpy, FETCH_TASK_BY_ID_RESPONSE);
         expect(RequestToTaskDto).toBeCalledWith(req);
         expect(TaskService.updateTask).toBeCalledWith(incomingDto, resSpy);
     });
