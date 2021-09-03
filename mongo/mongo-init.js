@@ -31,19 +31,19 @@ db.tags.insertOne({
 });
 
 db.tags.insertOne({
-    name: 'Udemy',
-    description: 'Related to a Udemy Course'
+    name: 'Udemy Course',
+    description: 'udemy course '
 });
 
 db.tags.insertOne({
-    name: 'Udemy',
-    description: 'Blockchain'
+    name: 'Blockchain',
+    description: 'Udemy course'
 });
 
 // PROJECTS
 db.projects.insertOne({
     id: 0,
-    name: "React Timer App",
+    name: "React Apps",
 });
 
 db.projects.insertOne({
@@ -68,10 +68,45 @@ db.projects.insertOne({
 
 db.projects.insertOne({
     id: 5,
-    name: "AWS Course Work"
+    name: "Reading"
 });
 
 db.projects.insertOne({
     id: 6,
-    name: "Blockchain"
+    name: "Disney Reservation"
+});
+
+db.projects.insertOne({
+    id: 7,
+    name: "Bills"
+});
+
+db.projects.insertOne({
+    id: 8,
+    name: "Farzins lumber effort"
+});
+
+db.projects.insertOne({
+    id: 9,
+    name: "Politics"
+});
+
+db.projects.insertOne({
+    id: 10,
+    name: "Articles and Emails"
+});
+
+db.projects.insertOne({
+    id: 11,
+    name: "Udemy Course Work"
+});
+
+db.projects.insertOne({
+    id: 12,
+    name: "Crypto Currency Stuff"
+});
+
+db.projects.insertOne({
+    id: 13,
+    name: "Udemy Amazon Services Course"
 });
