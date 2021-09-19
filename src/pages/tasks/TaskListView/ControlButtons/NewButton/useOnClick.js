@@ -8,7 +8,7 @@ const useOnClick = () => {
     return () => {
         const emptyTask = hydrateTaskForm(-1, [], 0, '', getCurrentDateTimeEstFormat(), 0, []);
         const dispatch = data => {
-            push(`/task/${data._id}`);
+            push(data?._id ? `/task/${data._id}` : '/');
             window.location.reload();
         }
 
