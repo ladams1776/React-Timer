@@ -9,7 +9,7 @@ const hydrateTaskForm = (id, tags, project, description, dateFormatted, time, ta
     WorkUnit: [
       {
         time,
-        contractId: project,
+        contractId: project || 0,
         description,
         tags: selectedTags,
       },
