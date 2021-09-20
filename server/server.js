@@ -6,23 +6,7 @@ const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
 const fileupload = require("express-fileupload");
-
-// TASK ACTION imports
-const getAllTasksAction = require('./application/requestHandlers/tasks/getAllTasksAction');
-const fetchTaskByIdAction = require('./application/requestHandlers/tasks/fetchTaskByIdAction');
-const putTaskAction = require('./application/requestHandlers/tasks/putTaskAction');
-const getAllTagsAction = require('./application/requestHandlers/tags/getAllTagsAction');
-const addTaskAction = require('./application/requestHandlers/tasks/addTaskAction');
-const deleteTaskByIdAction = require('./application/requestHandlers/tasks/deleteTaskByIdAction');
-const deleteAllTaskAction = require('./application/requestHandlers/tasks/deleteAllTaskAction');
-// TASK > IMPORT ACTION imports
-const importAction = require('./application/requestHandlers/tasks/importAction');
-const updateDateTimeAction = require('./application/requestHandlers/tasks/updateDateTimeAction');
-// TAG ACTION imports
-const deleteTagAction = require('./application/requestHandlers/tags/deleteTagAction');
-const postTagAction = require('./application/requestHandlers/tags/postTagAction');
-const putTagAction = require('./application/requestHandlers/tags/putTagAction');
-const getTagByIdAction = require('./application/requestHandlers/tags/getTagByIdAction');
+const mongoSanitize = require('express-mongo-sanitize');
 
 // @TODO: Move the username and password out of here
 const SERVER_AND_PORT = 'admin-user:admin-password@localhost:27017';
@@ -91,24 +75,6 @@ app.use(express.json({
 app.use(fileupload());
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(bodyParser.json({ limit: '50mb', extended: true }));
+app.use(mongoSanitize());
 
-// TASKS
-app.get('/api/tasks', getAllTasksAction);
-app.get('/api/task/:id', fetchTaskByIdAction);
-app.post('/api/task/', addTaskAction);
-app.put('/api/task', putTaskAction);
-app.delete('/api/task/:id', deleteTaskByIdAction);
-app.delete('/api/tasks', deleteAllTaskAction);
-
-// TASKS > IMPORT
-app.post('/api/import', importAction);
-
-// TASKS > DATE TIME
-app.put('/api/task/:taskId/dateTime/:id', updateDateTimeAction);
-
-// TAGS
-app.get('/api/tags', getAllTagsAction);
-app.get('/api/tag/:id', getTagByIdAction);
-app.post('/api/tag', postTagAction);
-app.put('/api/tag', putTagAction);
-app.delete('/api/tag/:id', deleteTagAction);
+require('./routes')(app);
