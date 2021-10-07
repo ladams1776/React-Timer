@@ -13,7 +13,7 @@ const Task = ({ _id, description, contractId, selectedId, setTasks }) => {
   const projectOptionLabel = useGetProjectOptionLabel(contractId);
   const isSelected = selectedId === _id;
   const onDispatchWhenLeave = useUpdateWhenLeave();
- 
+
   return (
     <div className={styles.taskContainer}>
       <div className={cn(styles.taskItem, { [styles.selected]: isSelected })}>
@@ -33,7 +33,7 @@ const Task = ({ _id, description, contractId, selectedId, setTasks }) => {
           />
           <span className={styles.taskItemCustomer}>{projectOptionLabel}</span>
         </div>
-        <DeleteTaskButton taskId={_id} isSelected={isSelected} />
+        <DeleteTaskButton taskId={_id} isSelected={isSelected} setTasks={setTasks} />
       </div>
       <div className={styles.borderContainer}>
         <div className={cn(styles.underBorder, { [styles.underBorderSelected]: isSelected })} />

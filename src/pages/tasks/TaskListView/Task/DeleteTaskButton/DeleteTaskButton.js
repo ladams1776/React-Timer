@@ -1,20 +1,22 @@
 import React from "react";
 import cn from 'classnames';
 import { fetchApiData } from 'utils';
-import { useBrowserHistory } from 'hooks';
+import { useLoadinSpinnerContext } from 'hooks';
 import useDispatch from './useDispatch';
 import { Button } from "components";
 import styles from './DeleteTaskButton.module.css';
 
-const DeleteTaskButton = ({ taskId, isSelected }) => {
-  const { push } = useBrowserHistory();
+const DeleteTaskButton = ({ taskId, isSelected, setTasks }) => {
   const dispatch = useDispatch(taskId);
+  const { setIsLoadin } = useLoadinSpinnerContext();
 
   const _deleteClick = async e => {
     const isDeleting = window.confirm("Are you sure you want to delete task?");
     const reload = data => {
       dispatch(data);
-      push('/');
+      setIsLoadin(true);
+      fetchApiData('tasks', {}, setTasks);
+      setIsLoadin(false);
     };
 
     if (isDeleting) {
