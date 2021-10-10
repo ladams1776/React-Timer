@@ -2,7 +2,7 @@ const { body } = require('express-validator');
 
 // TASK ACTION imports
 const getAllTasksAction = require('./application/requestHandlers/tasks/getAllTasksAction');
-const fetchTaskByIdAction = require('./application/requestHandlers/tasks/fetchTaskByIdAction');
+const getTaskByIdAction = require('./application/requestHandlers/tasks/getTaskByIdAction');
 const putTaskAction = require('./application/requestHandlers/tasks/putTaskAction');
 const getAllTagsAction = require('./application/requestHandlers/tags/getAllTagsAction');
 const addTaskAction = require('./application/requestHandlers/tasks/addTaskAction');
@@ -20,7 +20,7 @@ const getTagByIdAction = require('./application/requestHandlers/tags/getTagByIdA
 module.exports = (app) => {
     // TASKS
     app.get('/api/tasks', getAllTasksAction);
-    app.get('/api/task/:id', fetchTaskByIdAction);
+    app.get('/api/task/:id', getTaskByIdAction);
     app.post(
         '/api/task/',
         [
