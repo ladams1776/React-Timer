@@ -6,7 +6,7 @@ const useFormSetup = () => {
 
     const onSubmit = ({ _id, description, name }) => {
         const body = { name, description, _id };
-        console.log('body: ', body);
+        // console.log('body: ', body);
         dispatch(putTag(body));
     };
 
