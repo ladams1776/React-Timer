@@ -11,7 +11,6 @@ import ControlButtons from './TaskListView/ControlButtons/ControlButtons';
 import useFetchAllTasks from 'pages/tasks/hooks/useFetchAllTasks';
 import styles from './TaskPage.module.css';
 
-
 const TaskPage = ({ match }) => {
   const taskId = match?.params?.id;
 
