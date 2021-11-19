@@ -1,5 +1,13 @@
 db.auth('admin-user', 'admin-password')
 
+db.tasks.insertOne({
+    date: Date.now(),
+    description: 'Notes description',
+    conreactId: 0,
+    time: [{ date: Date.now(), time: 0 }],
+    tags: [{ name: 'DDD', description: 'Domain Driven Design' }]
+});
+
 db.tags.insertOne({
     name: 'DDD',
     description: 'Domain Driven Design'
@@ -109,4 +117,9 @@ db.projects.insertOne({
 db.projects.insertOne({
     id: 13,
     name: "Udemy Amazon Services Course"
+});
+
+db.projects.insertOne({
+    id: 14,
+    name: "Journal"
 });
