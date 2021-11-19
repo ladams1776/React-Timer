@@ -21,13 +21,14 @@ export const fetchTaskById = (taskId: string): RequestAction<'FETCH_TASK_BY_ID'>
 
 interface Body {}
 
-export const putTaskById = (body: Body): RequestPostPutAction<'PUT_TASK_BY_ID'> => {
+export const putTaskById = (body: Body): RequestPostPutFlashAction<'PUT_TASK_BY_ID'> => {
   return {
     type: PUT_TASK_BY_ID,
     url: `task`,
     method: PUT,
     body,
     requestApi: true,
+    isFlash: true,
   };
 };
 
