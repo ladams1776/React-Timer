@@ -11,12 +11,12 @@ import ControlButtons from './TaskListView/ControlButtons/ControlButtons';
 import useFetchAllTasks from 'pages/tasks/hooks/useFetchAllTasks';
 import styles from './TaskPage.module.css';
 
-
 const TaskPage = ({ match }) => {
   const taskId = match?.params?.id;
 
   useSetCurrentLocation(`/task/${taskId}`);
-  const [tasks, setTasks] = React.useState([]);
+  const [t, setTasks] = React.useState([]);
+  const tasks = t.items;
   useFetchAllTasks(setTasks);
   const refs = useTaskRefs(tasks);
 

@@ -1,13 +1,13 @@
-const fetchTaskByIdAction = require('../fetchTaskByIdAction');
+const getTaskByIdAction = require('../getTaskByIdAction');
 const TaskService = require('../../../../domain/services/tasks/TaskService');
 const apiResponse = require('../../apiResponse');
 
 jest.mock('../../../../domain/services/tasks/TaskService');
 jest.mock('../../apiResponse');
 
-describe('server/application/requestHandlers/tasks/__test__/fetchTaskByIdAction.test.js', () => {
+describe('server/application/requestHandlers/tasks/__test__/getTaskByIdAction.test.js', () => {
 
-  describe('fetchTaskByIdAction', () => {
+  describe('getTaskByIdAction', () => {
     it('should call TaskService.fetchTaskById() and return in res.jsonp()', async () => {
       // Arrange
       const resSpy = jest.fn();
@@ -21,7 +21,7 @@ describe('server/application/requestHandlers/tasks/__test__/fetchTaskByIdAction.
       TaskService.fetchTaskById = jest.fn().mockImplementation(() => expected);
 
       // Act
-      await fetchTaskByIdAction(request, resSpy);
+      await getTaskByIdAction(request, resSpy);
 
       // Assert
       expect(TaskService.fetchTaskById)

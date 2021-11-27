@@ -21,7 +21,6 @@ module.exports = (dto, res) => (err, doc) => {
     doc.tags = dto.tags;
 
     doc.save((err, task) => {
-        if (err) console.log('shit, an error: ', err);
         res(EntityToDto(task));
     });
 };

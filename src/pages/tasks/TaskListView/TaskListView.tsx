@@ -20,17 +20,19 @@ const TaskListView: React.FC<TaskListViewProp> = ({ className, tasks, setTasks, 
   useSmoothScrolling(refs, id, description);
 
   return (
-    <div className={cn(className, styles.task, { [styles.listViewAndTask]: id})} data-testid="list-view">
-      <ul className={cn(styles.taskList, {[styles.listViewOnly]: !id })}>
-        {tasks.map((task: TaskInterface) => {
-          const desc = task._id === id ? description : task.description;
-          const ref = refs[task._id];
-          return (
-            <li key={task._id} className={cn(styles.task)} ref={ref}>
-              <Task key={task._id} contractId={task.projectId} {...task} description={desc} selectedId={id} setTasks={setTasks} />
-            </li>
-          );
-        })}
+    <div className={cn(className, styles.task, { [styles.listViewAndTask]: id })} data-testid="list-view">
+      <ul className={cn(styles.taskList, { [styles.listViewOnly]: !id })}>
+        {tasks?.length > 0 &&
+          tasks.map((task: TaskInterface) => {
+            const desc = task._id === id ? description : task.description;
+            const ref = refs[task._id];
+            return (
+              <li key={task._id} className={cn(styles.task)} ref={ref}>
+                <Task key={task._id} contractId={task.projectId} {...task} description={desc} selectedId={id} setTasks={setTasks} />
+              </li>
+            );
+          })}
+        {tasks?.length === 0 && (<li>No tasks - check DB</li>)}
       </ul>
     </div>
   );

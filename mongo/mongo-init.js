@@ -118,3 +118,8 @@ db.projects.insertOne({
     id: 13,
     name: "Udemy Amazon Services Course"
 });
+
+db.projects.insertOne({
+    id: 14,
+    name: "Journal"
+});
