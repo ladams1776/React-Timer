@@ -51,14 +51,14 @@
 }
 
 .flashMessageContent { 
-    flex: 2 2 auto;
+    flex: 8;
     font-size: 13px;
     margin: 0 1em;
 }
 
 .flashMessageCancel {
   margin: auto;
-  flex: 1 1 auto;
+  flex: 1;
   font-size: 18px;
 }
 
