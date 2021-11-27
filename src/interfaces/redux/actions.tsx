@@ -14,4 +14,5 @@ export interface RequestPostPutAction<T> extends RequestAction<T> {
 
 export interface RequestPostPutFlashAction<T> extends RequestPostPutAction<T> {
   isFlash: boolean;
+  flashMessage: string;
 };
