@@ -19,7 +19,6 @@ const TaskListView: React.FC<TaskListViewProp> = ({ className, tasks, setTasks, 
 
   useSmoothScrolling(refs, id, description);
 
-  // console.log('tasks', tasks)
   return (
     <div className={cn(className, styles.task, { [styles.listViewAndTask]: id })} data-testid="list-view">
       <ul className={cn(styles.taskList, { [styles.listViewOnly]: !id })}>
