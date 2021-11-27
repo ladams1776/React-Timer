@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { useFlashMessageFetchApiData } from 'utils';
+// import { useFlashMessageFetchApiData } from 'utils';
 
 const useFetchAllTags = setTags => {
-  const fetchApiData = useFlashMessageFetchApiData('tags', {}, setTags, '', 'Failed to get Tags');
+  // const fetchApiData = useFlashMessageFetchApiData('tags', {}, setTags, '', 'Failed to get Tags');
   /* eslint-disable-next-line react-hooks/exhaustive-deps */
-  return useEffect(() => fetchApiData(), []);
+  // return useEffect(() => fetchApiData(), []);
 };
 export default useFetchAllTags;

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react-hooks';
-import {
-    useFlashMessageContext
-} from 'hooks';
+// import {
+//     useFlashMessageContext
+// } from 'hooks';
 import useFormDispatch from '../useFormDispatch';
 import useBrowserHistory from 'hooks/useBrowserHistory';
 
@@ -27,7 +27,7 @@ describe('src/pages/createOrEditTask/hooks/__test__/useFormDispatch.test.js', ()
             flashMessageContext.setErrorFlashMessage.mockReset();
             historyMock.push.mockReset();
 
-            useFlashMessageContext.mockReturnValue(flashMessageContext);
+            // useFlashMessageContext.mockReturnValue(flashMessageContext);
             useBrowserHistory.mockReturnValue(historyMock);
         });
 

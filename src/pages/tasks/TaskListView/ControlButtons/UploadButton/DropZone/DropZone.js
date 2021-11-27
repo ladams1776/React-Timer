@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { useBrowserHistory, useFlashMessageContext } from 'hooks';
+import { useBrowserHistory } from 'hooks';
 import { fetchApiData } from "utils";
 import styles from './DropZone.module.css'
 
 
 const DropZone = ({ onClick }) => {
-    const { setSuccessFlashMessage } = useFlashMessageContext();
+    // const { setSuccessFlashMessage } = useFlashMessageContext();
     const { push } = useBrowserHistory();
 
     const onDrop = useCallback(acceptedFiles => {
@@ -19,7 +19,7 @@ const DropZone = ({ onClick }) => {
             const binaryStr = JSON.parse(reader.result);
             fetchApiData('import', { body: binaryStr, method: 'POST' }, () => {
                 onClick();
-                setSuccessFlashMessage('Successfully Saved');
+                // setSuccessFlashMessage('Successfully Saved');
                 push("/task/-1");
             });
         }

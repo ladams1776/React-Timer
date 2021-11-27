@@ -7,7 +7,6 @@ import useSubmit from './useSubmit';
 import { EditDateTimeInterface } from 'interfaces/pages/tasks/Task';
 import formatMinsAndSecsForDisplay from 'utils/formatters/formatMinsAndSecsForDisplay';
 import styles from './EditDateTimeForm.module.css';
-import { useFlashMessageContext } from 'hooks';
 interface EditDateTimeFormProp {
   editDateTime: EditDateTimeInterface;
   taskId: string;
@@ -17,10 +16,11 @@ interface EditDateTimeFormProp {
 const EditDateTimeForm: React.FC<EditDateTimeFormProp> = ({ editDateTime, taskId, setIsShowingEditDateTimeForm }) => {
   const onSubmit = useSubmit(taskId, setIsShowingEditDateTimeForm);
   const minsAndSecs = formatMinsAndSecsForDisplay(editDateTime.minutes);
-  const { setInfoFlashMessage } = useFlashMessageContext();
+  //@TODO: Replace with new info
+  // const { setInfoFlashMessage } = useFlashMessageContext();
   
   useEffect(() => {
-    setInfoFlashMessage('Save note before adjusting time, might lose notes.');
+    // setInfoFlashMessage('Save note before adjusting time, might lose notes.');
   }, []);
 
   return (

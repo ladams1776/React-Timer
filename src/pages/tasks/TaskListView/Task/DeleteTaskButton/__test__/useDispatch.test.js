@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useFlashMessageContext } from 'hooks';
+// import { useFlashMessageContext } from 'hooks';
 import useDispatch from '../useDispatch';
 import { act } from 'react-dom/test-utils';
 
@@ -15,7 +15,7 @@ describe('src/pages/tasks/TaskListView/Task/DeleteTaskButton/__test__/useDispatc
         };
 
         beforeEach(() => {
-            useFlashMessageContext.mockReturnValue(flashMessageContextMock);
+            // useFlashMessageContext.mockReturnValue(flashMessageContextMock);
             window.location.reload = jest.fn();
         });
 
