@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { FETCH_TASK_BY_ID, FETCH_TASK_BY_ID_RESPONSE, PUT_TASK_BY_ID, PUT_TASK_BY_ID_RESPONSE_SUCCESS, UPDATE_DATE_TIME_RESPONSE } from '../types';
+import { FETCH_TASK_BY_ID, FETCH_TASK_BY_ID_RESPONSE_SUCCESS, PUT_TASK_BY_ID, PUT_TASK_BY_ID_RESPONSE_SUCCESS, UPDATE_DATE_TIME_RESPONSE } from '../types';
 import { ResponseAction, Tag } from 'interfaces/redux/reducers';
 import { DateTimeInterface } from 'interfaces/pages/tasks/Task';
 
@@ -17,23 +17,15 @@ interface TagAction {
   items: any;
 }
 
-// export const fetchTaskByIdReducer = (state = null, action: ResponseAction<'FETCH_TASK_BY_ID', TaskAction>) => {
-//   switch (action.type) {
-//     case FETCH_TASK_BY_ID:
-//       return state;
-//     default:
-//       return state;
-//   }
-// };
-
-export const responseTaskByIdReducer = (state = null, action:any) => {
-  console.log('responseTaskByIdReducer - state', state);
-  console.log('responseTaskByIdReducer - action', action);
+export const responseTaskReducer = (state = null, action: any) => {
   switch (action.type) {
-    case FETCH_TASK_BY_ID: 
-    case FETCH_TASK_BY_ID_RESPONSE:
-    case PUT_TASK_BY_ID_RESPONSE_SUCCESS:
+    case FETCH_TASK_BY_ID:
+    case FETCH_TASK_BY_ID_RESPONSE_SUCCESS:
       return action.data;
+    case PUT_TASK_BY_ID_RESPONSE_SUCCESS:
+      return {
+        ...action.data.items,
+      };
     default:
       return state;
   }
@@ -68,6 +60,6 @@ export const putDateTimeReducer = (state = null, action: ResponseAction<'UPDATE_
 
 export default combineReducers({
   // fetchTaskByIdReducer: fetchTaskByIdReducer,
-  taskById: responseTaskByIdReducer,
+  taskById: responseTaskReducer,
   // time: responseTimeByTaskIdReducer,
 });
