@@ -26,7 +26,7 @@ const FlashMessage = () => {
           info: isInfo,
           error: isError,
         })}
-        test-data-id="flash-flashMessage"
+        data-testid="flash-message"
         onClick={() => dispatch(setFlashMessageAction('success', null))}
       >
         <div
@@ -37,9 +37,7 @@ const FlashMessage = () => {
           })}
         />
 
-        <div className="flashMessageContent" test-data-id="flash-message_message">
-          {message}
-        </div>
+        <div className="flashMessageContent">{message}</div>
 
         <div className={cn('flashMessageCancel', 'glyphicon glyphicon-remove-circle')} />
       </div>
