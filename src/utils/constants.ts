@@ -3,6 +3,8 @@ export const PUT = 'PUT';
 export const POST = 'POST';
 export const DELETE = 'DELETE';
 
+export const TEN_SECONDS = 10000;
+
 // flash message
 export type FLASH_MESSAGE_TYPES = 'success' | 'error' | 'info';
 export const FLASH_MESSAGE = 'FLASH_MESSAGE'

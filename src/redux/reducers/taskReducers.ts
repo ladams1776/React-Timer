@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { FETCH_TASK_BY_ID, FETCH_TASK_BY_ID_RESPONSE_SUCCESS, PUT_TASK_BY_ID, PUT_TASK_BY_ID_RESPONSE_SUCCESS, UPDATE_DATE_TIME_RESPONSE } from '../types';
+import { FETCH_TASK_BY_ID, FETCH_TASK_BY_ID_RESPONSE_SUCCESS, PUT_TASK_BY_ID, PUT_TASK_BY_ID_RESPONSE_SUCCESS, UPDATE_DATE_TIME_RESPONSE } from '../../utils/constants';
 import { ResponseAction, Tag } from 'interfaces/redux/reducers';
 import { DateTimeInterface } from 'interfaces/pages/tasks/Task';
 

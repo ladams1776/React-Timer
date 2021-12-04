@@ -1,4 +1,4 @@
-import { FLASH_MESSAGE } from "redux/types";
+import { FLASH_MESSAGE } from "utils/constants";
 
 //@TODO: Add more types
 export const flashReducer = (state = null, action: any) => {

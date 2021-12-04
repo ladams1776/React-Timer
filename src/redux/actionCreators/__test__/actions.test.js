@@ -1,4 +1,4 @@
-import { FETCH_TASK_BY_ID, PUT, PUT_TASK_BY_ID, FETCH_ALL_TAGS, FETCH_TAG_BY_ID, UPDATE_DATE_TIME, PUT_TAG, FETCH_ALL_TASKS } from "redux/types";
+import { FETCH_TASK_BY_ID, PUT, PUT_TASK_BY_ID, FETCH_ALL_TAGS, FETCH_TAG_BY_ID, UPDATE_DATE_TIME, PUT_TAG, FETCH_ALL_TASKS } from "utils/constants";
 import { fetchTaskById, putTaskById, fetchAllTags, fetchTagById, putDateTime, putTag, fetchAllTasks } from "../actions";
 
 describe('src/redux/actionCreators/__test__/actions.test.js', () => {

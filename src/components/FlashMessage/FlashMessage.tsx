@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { useDispatch } from 'react-redux';
+import { TEN_SECONDS } from 'utils/constants';
 import useTimeout from 'hooks/useTimeout';
 import { setFlashMessageAction } from 'redux/actionCreators/actions';
 import { useFlashMessageSelectors } from 'redux/selectors/useFlashMessageSelectors';
@@ -15,7 +16,7 @@ const FlashMessage = () => {
 
   useTimeout(() => {
     dispatch(setFlashMessageAction('success', null));
-  },10000);
+  }, TEN_SECONDS);
   
   return (
     !message || (

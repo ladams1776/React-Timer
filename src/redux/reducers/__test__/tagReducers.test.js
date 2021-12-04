@@ -1,4 +1,4 @@
-import { FETCH_ALL_TAGS_RESPONSE, FETCH_ALL_TAGS, FETCH_TAG_BY_ID_RESPONSE } from "redux/types";
+import { FETCH_ALL_TAGS_RESPONSE, FETCH_ALL_TAGS, FETCH_TAG_BY_ID_RESPONSE } from "utils/constants";
 import { fetchTagsReducer, fetchTagByIdResponseReducer, responseAllTagsReducer, putTagResponseReducer } from "../tagReducers";
 
 describe('src/redux/reducers/__test__/tagReducers.test.js', () => {

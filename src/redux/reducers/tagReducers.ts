@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { FETCH_ALL_TAGS, FETCH_ALL_TAGS_RESPONSE, FETCH_TAG_BY_ID_RESPONSE, PUT_TAG_RESPONSE, POST_TAG_RESPONSE } from '../types';
+import { FETCH_ALL_TAGS, FETCH_ALL_TAGS_RESPONSE, FETCH_TAG_BY_ID_RESPONSE, PUT_TAG_RESPONSE, POST_TAG_RESPONSE } from '../../utils/constants';
 import { Tag, ResponseAction } from 'interfaces/redux/reducers';
 
 export const fetchTagsReducer = (state = null, action: ResponseAction<'FETCH_ALL_TAGS', Tag>) => {
