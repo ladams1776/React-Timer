@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/pages/tasks/TaskListView/ControlButtons/__test__/ControlButtons ControlButtons should display ControlButtons 1`] = `
+<div
+  class="controlButtons"
+  data-testid="control-buttons"
+>
+  <div
+    class="HomeButton"
+  >
+    HomeButton
+  </div>
+  <div
+    class="DownloadButton"
+  >
+    DownloadButton
+  </div>
+  <div
+    class="UploadButton"
+  >
+    UploadButton
+  </div>
+  <div
+    class="NewButton"
+  >
+    NewButton
+  </div>
+</div>
+`;

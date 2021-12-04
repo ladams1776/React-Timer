@@ -1,23 +1,32 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { findByTestId } from 'testUtils';
+import { render } from '@testing-library/react'
 import ControlButtons from '../ControlButtons';
 
-jest.mock('hooks/useBrowserHistory');
+jest.mock('../NewButton/NewButton', () => {
+  return () => <div className="NewButton">NewButton</div>
+});
+jest.mock('../DownloadButton/DownloadButton', () => {
+  return () => <div className="DownloadButton">DownloadButton</div>
+});
+jest.mock('../HomeButton/HomeButton', () => {
+  return () => <div className="HomeButton">HomeButton</div>
+});
+jest.mock('../UploadButton/UploadButton', () => {
+  return () => <div className="UploadButton">UploadButton</div>
+});
 
-describe('src/components/ControlButtons/__test__/ControlButtons.test.js', () => {
-  // Arrange
-  let wrapper;
-
+describe('src/pages/tasks/TaskListView/ControlButtons/__test__/ControlButtons', () => {
   describe('ControlButtons', () => {
     it('should display ControlButtons', () => {
       // Arrange
+      const tasks = [{}];
 
       // Act
-      wrapper = shallow(<ControlButtons />);
+      const target = render(<ControlButtons tasks={tasks} />);
+      const actual = target.getByTestId('control-buttons');
 
       // Assert
-      expect(findByTestId(wrapper, 'control-buttons')).toHaveLength(1);
+      expect(actual).toBeInTheDocument();
+      expect(actual).toMatchSnapshot();
     });
   });
 });
