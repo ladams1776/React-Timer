@@ -20,7 +20,7 @@ const useHandleDownload = (tasks: TaskInterface[]) => {
 const DownloadButton: React.FC<DownloadButtonProps> = (...tasks) => {
   const handleDownload = useHandleDownload(tasks);
 
-  return <>{tasks.length || <Button title="Download Tasks" type="a" className={cn(styles.buttonDownload, 'glyphicon glyphicon-download-alt')} onClick={handleDownload} />}</>;
+  return <>{tasks?.length && <Button title="Download Tasks" type="a" className={cn(styles.buttonDownload, 'glyphicon glyphicon-download-alt')} onClick={handleDownload} />}</>;
 };
 
 export default DownloadButton;
