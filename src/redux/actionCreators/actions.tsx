@@ -11,7 +11,7 @@ import {
   FETCH_ALL_TASKS,
   FLASH_MESSAGE,
   FLASH_MESSAGE_TYPES,
-} from '../types';
+} from '../../utils/constants';
 import { RequestAction, RequestPostPutAction, RequestPostPutFlashAction } from 'interfaces/redux/actions';
 import { EditDateTimeInterface } from 'interfaces/pages/tasks/Task';
 
@@ -106,5 +106,5 @@ export const postTag = (body: Body): RequestPostPutAction<'POST_TAG'> => ({
 export const setFlashMessageAction = (status: FLASH_MESSAGE_TYPES, message: string|null) => ({
   type: FLASH_MESSAGE,
   status,
-  message,
+  message:message,
 });
