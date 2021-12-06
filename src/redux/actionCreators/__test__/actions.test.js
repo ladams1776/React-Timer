@@ -48,6 +48,8 @@ describe('src/redux/actionCreators/__test__/actions.test.js', () => {
                 const expected = {
                     requestApi: true,
                     type: PUT_TASK_BY_ID,
+                    flashMessage: "Saved task",
+                    isFlash: true,
                     url: 'task',
                     method: PUT,
                     body
@@ -114,9 +116,9 @@ describe('src/redux/actionCreators/__test__/actions.test.js', () => {
 
                 const expected = {
                     requestApi: true,
-                    type: FETCH_TAG_BY_ID,
-                    url: `tag/${tagId}`,
-                };
+                    type: "FETCH_TAG_BY_ID",
+                    url: "tag/tagId",
+                }
 
                 // Act
                 const actual = fetchTagById(tagId);
@@ -134,12 +136,13 @@ describe('src/redux/actionCreators/__test__/actions.test.js', () => {
                 };
 
                 const expected = {
+                    "body": {
+                        "tagId": "tagId",
+                    },
+                    method: "PUT",
                     requestApi: true,
-                    type: PUT_TAG,
-                    url: 'tag',
-                    method: PUT,
-                    body,
-                    isFlash: true
+                    type: "PUT_TAG",
+                    url: "tag",
                 };
 
                 // Act
