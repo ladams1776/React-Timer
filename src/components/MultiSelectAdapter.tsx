@@ -19,7 +19,7 @@ const MultiSelectAdapter: React.FC<MultiSelectProp> = ({ ...rest }) => {
   const { onChange, value } = rest.input;
   const values = useTagTransformer(value) || [];
 
-  return <MultiSelect {...rest} labelledBy={'Select'} value={values} onChange={onChange} data-test-id="multi-select" />;
+  return <MultiSelect {...rest} labelledBy={'Select'} value={values} onChange={onChange} data-testid="multi-select" />;
 };
 
 export default MultiSelectAdapter;

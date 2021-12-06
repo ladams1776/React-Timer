@@ -1,27 +1,19 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { createWrapperWithContext, findByTestId } from 'testUtils';
+import { render } from '@testing-library/react';
 import MultiSelectAdapter from '../MultiSelectAdapter';
+
+jest.mock('react-multi-select-component', () => {
+  return () => <div data-testid="multi-select" >MultiSelect</div>;
+});
 
 describe('src/components/__test__/MultiSelectAdapter.test.js', () => {
   describe('MultiSelectAdapter', () => {
-    // Arrange
-    let wrapper;
     it('should render MultiSelectAdapter', () => {
-      // Arrange
-      const expected = {
-        'data-test-id': 'multi-select',
-        input: { value: 'hi' },
-        labelledBy: 'Select',
-      };
-
-      // Act
-      wrapper = shallow(<MultiSelectAdapter input={{ value: 'hi' }} />);
+      // Arrange & Act
+      const actual = render(<MultiSelectAdapter input={{ value: 'hi' }} />);
 
       // Assert
-      expect(findByTestId(wrapper, 'multi-select').props('labelledBy')).toEqual(
-        expected,
-      );
+      expect(actual.getByTestId('multi-select')).toBeInTheDocument();
+      expect(actual).toMatchSnapshot();
     });
   });
 });
