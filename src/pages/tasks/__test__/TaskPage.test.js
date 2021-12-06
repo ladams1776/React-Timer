@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
@@ -18,7 +18,7 @@ jest.mock('pages/tasks/hooks/useFetchAllTasks');
 // mock components
 jest.mock('../TaskListView/TaskListView', () => () => <div>TaskListView</div>);
 jest.mock('../TaskListView/ControlButtons/ControlButtons', () => () => (<div>ControlButtons</div>));
-jest.mock('../TaskForm/form/AddTaskForm', () => () => (<div>AddTaskForm</div>));
+jest.mock('../TaskForm/form/EditTaskForm', () => () => (<div>EditTaskForm</div>));
 
   describe('TaskPage', () => {
     it('should render Add Task Form if there is a taskId', () => {
@@ -28,7 +28,7 @@ jest.mock('../TaskForm/form/AddTaskForm', () => () => (<div>AddTaskForm</div>));
       useTaskRefs.mockImplementation();
 
       const setTasks = jest.fn();
-      const stubInitialState = [[{ id: 1 }], setTasks];
+      const stubInitialState = [{items: [{ id: 1 }]}, setTasks];
       jest
         .spyOn(React, 'useState')
         .mockImplementationOnce(() => stubInitialState);
@@ -47,29 +47,5 @@ jest.mock('../TaskForm/form/AddTaskForm', () => () => (<div>AddTaskForm</div>));
       expect(useFetchAllTasks).toBeCalledWith(setTasks);
       expect(useTaskRefs).toBeCalledWith([{ id: 1 }]);
       expect(queryByTestId('container').getElementsByClassName("addTaskForm")).toBeTruthy();
-    });
-
-    it('should not render Add Task Form if there is no taskId', () => {
-      // Arrange
-      useSetCurrentLocation.mockImplementation();
-      useFetchAllTasks.mockImplementation();
-      useTaskRefs.mockImplementation();
-
-      const setTasks = jest.fn();
-      const stubInitialState = [[], setTasks];
-      jest
-        .spyOn(React, 'useState')
-        .mockImplementationOnce(() => stubInitialState);
-
-      const match = {};
-
-      // Act
-      const { queryByTestId } = render(<TaskPage match={match} />);
-
-      // Assert
-      expect(useSetCurrentLocation).toBeCalledWith('/task/undefined');
-      expect(useFetchAllTasks).toBeCalledWith(setTasks);
-      expect(useTaskRefs).toBeCalledWith([]);
-      expect(JSON.stringify(queryByTestId('container').getElementsByClassName("addTaskForm"))).toEqual(JSON.stringify({}));
     });
   });
