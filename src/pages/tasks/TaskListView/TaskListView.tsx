@@ -32,7 +32,7 @@ const TaskListView: React.FC<TaskListViewProp> = ({ className, tasks, setTasks, 
               </li>
             );
           })}
-        {tasks?.length === 0 && (<li>No tasks - check DB</li>)}
+        {tasks?.length === 0 && <li>No tasks - check DB</li>}
       </ul>
     </div>
   );
