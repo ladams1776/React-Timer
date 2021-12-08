@@ -25,7 +25,7 @@ describe('src/utils/api/fetchApiData/__test__/fetchApiData.test.js', () => {
       await fetchApiData(url, {}, dispatchSpy);
 
       // Assert
-      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, { "headers": { "Content-Type": "application/json" }, "method": "GET" });
+      expect(global.fetch).toHaveBeenNthCalledWith(1, `/api/${url}`, { "body": null, "headers": { "Content-Type": "application/json" }, "method": "GET" });
       expect(dispatchSpy).toHaveBeenNthCalledWith(1, data);
     });
 
