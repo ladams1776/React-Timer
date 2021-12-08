@@ -5,7 +5,7 @@ import Modal from '../Modal';
 
 // mock components
 jest.mock('components/Button', () => {
-    return jest.fn(() => <div data-testid="Button">{"Button"}</div>);
+    return () => <div data-testid="Button">{"Button"}</div>;
 })
 
 describe('Modal.test.js', () => {
@@ -14,7 +14,10 @@ describe('Modal.test.js', () => {
         const setIsShowingSpy = jest.fn();
 
         // Act
-        const { queryByTestId } = render(<Modal setIsShowingSpy={setIsShowingSpy}><div data-testid="children">{"children"}</div></Modal>);
+        const { queryByTestId } = render(<Modal
+            setIsShowingSpy={setIsShowingSpy}>
+            <div data-testid="children">{"children"}</div>
+        </Modal>);
 
         // Assert
         expect(queryByTestId("Button")).toBeInTheDocument();
