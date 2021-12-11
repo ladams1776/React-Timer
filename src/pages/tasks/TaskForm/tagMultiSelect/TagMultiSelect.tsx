@@ -15,7 +15,7 @@ const TagMultiSelect: React.FC<TagMultiSelectProps> = ({ tags, input, ...rest })
 
   return <MultiSelectAdapter 
             className={styles.select} 
-            data-test-id="tag-multi-select" 
+            data-testid="tag-multi-select" 
             name="tags" 
             input={input}
             options={transformedTags} 
