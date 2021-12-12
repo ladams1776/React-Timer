@@ -5,14 +5,14 @@ import { useDispatch } from 'react-redux';
 import styles from './NewButton.module.css';
 import { postTag } from 'redux/actionCreators/actions';
 
-const NewButton = () => {
+const NewButton: React.FC = () => {
   const dispatch = useDispatch();
 
-  return <Button data-test-id="btn-new"
+  return <Button data-testid="btn-new"
     className={cn(styles.buttonAdd, "glyphicon glyphicon-edit")}
     onClick={() => {
+      console.log('yes')
       dispatch(postTag({ description: "", name: "" }));
-      window.location.reload();
     }} />;
 };
 
