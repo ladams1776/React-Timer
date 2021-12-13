@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 const initialState = {
     flash: {
-        message: '',
+        message: null,
         status: 'success'
     }
 }

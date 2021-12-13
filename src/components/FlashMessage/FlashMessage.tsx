@@ -16,8 +16,10 @@ const FlashMessage = () => {
 
   useTimeout(() => {
     dispatch(setFlashMessageAction('success', null));
-  }, TEN_SECONDS);
-  
+  }, TEN_SECONDS, message);
+
+
+  console.log('do i have a message?', message)
   return (
     !message || (
       <div

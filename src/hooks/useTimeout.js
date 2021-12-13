@@ -1,12 +1,12 @@
 import { useEffect, useRef } from 'react'
 
-const useTimeout = (callback, delay) => {
+const useTimeout = (callback, delay, deps) => {
     const savedCallback = useRef(callback)
 
     // Remember the latest callback if it changes.
     useEffect(() => {
         savedCallback.current = callback
-    }, [callback])
+    }, [callback, deps])
 
     // Set up the timeout.
     useEffect(() => {
@@ -18,7 +18,7 @@ const useTimeout = (callback, delay) => {
         const id = setTimeout(() => savedCallback.current(), delay)
 
         return () => clearTimeout(id)
-    }, [delay])
+    }, [delay, deps])
 }
 
 export default useTimeout;

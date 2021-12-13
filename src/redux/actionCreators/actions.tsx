@@ -103,8 +103,8 @@ export const postTag = (body: Body): RequestPostPutAction<'POST_TAG'> => ({
 });
 
 // Flash Message
-export const setFlashMessageAction = (status: FLASH_MESSAGE_TYPES, message: string|null) => ({
+export const setFlashMessageAction = (status: FLASH_MESSAGE_TYPES, message: string | null = null) => ({
   type: FLASH_MESSAGE,
   status,
-  message:message,
+  message: message,
 });
