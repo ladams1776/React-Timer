@@ -19,7 +19,6 @@ const FlashMessage = () => {
   }, TEN_SECONDS, message);
 
 
-  console.log('do i have a message?', message)
   return (
     !message || (
       <div
