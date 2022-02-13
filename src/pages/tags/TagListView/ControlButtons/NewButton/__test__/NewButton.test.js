@@ -1,32 +1,20 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { findByTestId } from 'testUtils';
-import useBrowserHistory from 'hooks/useBrowserHistory';
 import NewButton from '../NewButton';
+import { render } from '@testing-library/react';
 
 jest.mock('hooks/useBrowserHistory');
+jest.mock('redux/actionCreators/actions');
+jest.mock('react-redux');
 
 describe('src/pages/tags/TagsPage/TagListViewControlPanel/NewButton/__test__/NewButton.test.js', () => {
   describe('NewButton', () => {
-    // Arrange
-    let wrapper;
-    const historyMock = {
-      push: jest.fn(),
-    };
-
-    beforeEach(() => {
-      useBrowserHistory.mockReturnValue(historyMock);
-    });
-
     describe('NewButton', () => {
-      it('should display NewButton', () => {
-        // Arrange
-
-        // Act
-        wrapper = shallow(<NewButton />);
+      it('should display NewButton', async () => {
+        // Arrange & Act
+        const { findByTestId } = render(<NewButton />);
 
         // Assert
-        expect(findByTestId(wrapper, 'btn-new')).toHaveLength(1);
+        expect(await findByTestId('btn-new')).toMatchSnapshot();
       });
     });
   });

@@ -2,23 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
 const app = express();
 const mongoose = require('mongoose');
-const Task = require('./infrastructure/models/Task');
-const Tag = require('./infrastructure/models/Tag');
-const getAllTasksAction = require('./application/requestHandlers/tasks/getAllTasksAction');
-const getTaskByIdAction = require('./application/requestHandlers/tasks/getTaskByIdAction');
-const updateTaskAction = require('./application/requestHandlers/tasks/updateTaskAction');
-const getAllTagsAction = require('./application/requestHandlers/tags/getAllTagsAction');
-const deleteTagAction = require('./application/requestHandlers/tags/deleteTagAction');
-const addTagAction = require('./application/requestHandlers/tags/addTagAction');
-const editTagAction = require('./application/requestHandlers/tags/editTagAction');
-const getTagByIdAction = require('./application/requestHandlers/tags/getTagByIdAction');
-const addTaskAction = require('./application/requestHandlers/tasks/addTaskAction');
-const { time } = require('console');
-const deleteTaskByIdAction = require('./application/requestHandlers/tasks/deleteTaskByIdAction');
-const deleteAllTaskAction = require('./application/requestHandlers/tasks/deleteAllTaskAction');
+const fileupload = require("express-fileupload");
+const mongoSanitize = require('express-mongo-sanitize');
 
 // @TODO: Move the username and password out of here
 const SERVER_AND_PORT = 'admin-user:admin-password@localhost:27017';
@@ -75,20 +63,18 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.json({
+  extended: true,
+  inflate: true,
+  limit: '100kb',
+  parameterLimit: 1000,
+  type: 'application/x-www-form-urlencoded',
+  verify: undefined
+}));
 
-// TASKS
-app.get('/api/tasks', getAllTasksAction);
-app.get('/api/task/:id', getTaskByIdAction);
-app.post('/api/task/', addTaskAction);
-app.put('/api/task', updateTaskAction);
-app.delete('/api/task/:id', deleteTaskByIdAction);
-app.delete('/api/tasks', deleteAllTaskAction);
+app.use(fileupload());
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
+app.use(bodyParser.json({ limit: '50mb', extended: true }));
+app.use(mongoSanitize());
 
-// TAGS
-app.get('/api/tags', getAllTagsAction);
-app.get('/api/tag/:id', getTagByIdAction);
-app.post('/api/tag', addTagAction);
-app.put('/api/tag', editTagAction);
-app.delete('/api/tag/:id', deleteTagAction);
+require('./routes')(app);

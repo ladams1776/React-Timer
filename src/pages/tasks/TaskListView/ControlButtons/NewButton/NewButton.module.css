@@ -1,0 +1,12 @@
+.buttonAdd,
+.buttonAdd:hover {
+  background-color: rgb(150, 150, 150);
+  color: white;
+  width: 45px;
+  height: 40px;
+  margin: 4px 5px;
+}
+
+.buttonAdd:hover {
+  background-color: rgb(50, 50, 50);
+}

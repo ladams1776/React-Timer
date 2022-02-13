@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/pages/tags/TagsPage/TagListViewControlPanel/NewButton/__test__/NewButton.test.js NewButton NewButton should display NewButton 1`] = `
+<button
+  class="btn btn-default navbar-btn baseBtn buttonAdd glyphicon glyphicon-edit"
+  data-testid="btn-new"
+/>
+`;

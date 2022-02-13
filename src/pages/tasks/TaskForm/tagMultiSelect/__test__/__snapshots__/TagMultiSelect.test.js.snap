@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/pages/createOrEditTask/form/__test__/TagMultiSelect.test.js TagMultiSelect should display TagMultiSelect 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="go2139093995 select"
+      >
+        <div
+          aria-labelledby="Select"
+          aria-readonly="true"
+          class="go2646822163 dropdown-container"
+          tabindex="0"
+        >
+          <div
+            class="go2642161244 dropdown-heading"
+          >
+            <div
+              class="dropdown-heading-value"
+            >
+              <span>
+                All items are selected.
+              </span>
+            </div>
+            <button
+              aria-label="Clear Selected"
+              class="go1003880112 clear-selected-button"
+              type="button"
+            >
+              <svg
+                class="dropdown-search-clear-icon gray"
+                fill="none"
+                height="24"
+                stroke="currentColor"
+                stroke-width="2"
+                width="24"
+              >
+                <line
+                  x1="18"
+                  x2="6"
+                  y1="6"
+                  y2="18"
+                />
+                <line
+                  x1="6"
+                  x2="18"
+                  y1="6"
+                  y2="18"
+                />
+              </svg>
+            </button>
+            <svg
+              class="dropdown-heading-dropdown-arrow gray"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-width="2"
+              width="24"
+            >
+              <path
+                d="M6 9L12 15 18 9"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="go2139093995 select"
+    >
+      <div
+        aria-labelledby="Select"
+        aria-readonly="true"
+        class="go2646822163 dropdown-container"
+        tabindex="0"
+      >
+        <div
+          class="go2642161244 dropdown-heading"
+        >
+          <div
+            class="dropdown-heading-value"
+          >
+            <span>
+              All items are selected.
+            </span>
+          </div>
+          <button
+            aria-label="Clear Selected"
+            class="go1003880112 clear-selected-button"
+            type="button"
+          >
+            <svg
+              class="dropdown-search-clear-icon gray"
+              fill="none"
+              height="24"
+              stroke="currentColor"
+              stroke-width="2"
+              width="24"
+            >
+              <line
+                x1="18"
+                x2="6"
+                y1="6"
+                y2="18"
+              />
+              <line
+                x1="6"
+                x2="18"
+                y1="6"
+                y2="18"
+              />
+            </svg>
+          </button>
+          <svg
+            class="dropdown-heading-dropdown-arrow gray"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-width="2"
+            width="24"
+          >
+            <path
+              d="M6 9L12 15 18 9"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -1,0 +1,35 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navBarInnerContainer {
+  height: 50px;
+  background-color: rgb(100, 100, 100);
+}
+
+.mainInnerContainer {
+  display: flex;
+  flex-direction: row;
+  height: 92vh;
+}
+
+.listView {
+  overflow-y: scroll;
+  min-width: 200px;
+  height: 100%;
+}
+
+@media only screen and (max-width: 900px) {
+  .listViewAndTask {
+    flex: 0;
+    min-width: 0px;
+  }
+}
+
+.form {
+  flex: 4;
+  /* margin-right: 2em; */
+  width: 80%;
+}
