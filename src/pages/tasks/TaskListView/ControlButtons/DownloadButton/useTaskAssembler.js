@@ -12,7 +12,7 @@ const useTaskAssembler = (...tasks) => {
         date: dateFormatted
     };
 
-    timeTask.WorkUnit = tasks.map(task =>
+    timeTask.WorkUnit = tasks?.map(task =>
         formatTimeContractAndCustomer(task, projects)
     );
 
