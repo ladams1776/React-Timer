@@ -11,7 +11,6 @@ const NewButton: React.FC = () => {
   return <Button data-testid="btn-new"
     className={cn(styles.buttonAdd, "glyphicon glyphicon-edit")}
     onClick={() => {
-      console.log('yes')
       dispatch(postTag({ description: "", name: "" }));
     }} />;
 };
