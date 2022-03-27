@@ -7,7 +7,8 @@ import styles from './TagPage.module.css'
 
 const TagPage = ({ match }) => {
   const tagId = match?.params?.id;
-  const [tags, setTags] = useState([]);
+  const [t, setTags] = useState([]);
+  const tags = t.items;
   useFetchAllTags(setTags);
 
   return (<div className={styles.container}>

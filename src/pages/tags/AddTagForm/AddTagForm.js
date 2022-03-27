@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { Form, Field } from 'react-final-form'
-import { Button } from 'components';
+import { Button, TextAreaAdapter } from 'components';
 import { useSetCurrentLocation } from 'hooks'
 import useFormSetup from './useFormSetup';
 import useFetchTagByIdDispatch from './useFetchTagByIdDispatch';
@@ -16,15 +16,22 @@ const AddTagePage = ({ tagId }) => {
 
     return (
         <div className={styles.container}>
+            <div className={styles.topButtonOutline}>
+                <div className="outline-submit">
+                    <Button type="submit" className={cn(styles.submit, "glyphicon glyphicon-floppy-save")} form="tagForm" data-test-id="addTagPageSubmit"/>
+                </div>
+            </div>
             <Form
                 onSubmit={onSubmit}
                 initialValues={tag}
                 render={({ handleSubmit }) => {
                     return (
                         <form
+                            id="tagForm"
                             data-test-id="form"
                             className={styles.form}
                             onSubmit={handleSubmit}>
+
                             <Field
                                 name="name"
                                 component="input"
@@ -35,14 +42,8 @@ const AddTagePage = ({ tagId }) => {
                                 cols="80"
                                 rows="10"
                                 className={styles.description}
-                                component="textarea"
+                                component={TextAreaAdapter}
                             />
-                            <div className={styles.submitContainer}>
-                                <Button type="submit"
-                                    className={cn("btn", "btn-primary", styles.submit)}
-                                    data-test-id="addTagPageSubmit"
-                                    value="Submit Form" />
-                            </div>
                         </form>
                     );
                 }}

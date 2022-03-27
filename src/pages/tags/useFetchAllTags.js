@@ -1,9 +1,14 @@
 import { useEffect } from 'react';
+import { fetchApiData } from 'utils';
+import { useLoadinSpinnerContext } from 'hooks';
 // import { useFlashMessageFetchApiData } from 'utils';
 
 const useFetchAllTags = setTags => {
-  // const fetchApiData = useFlashMessageFetchApiData('tags', {}, setTags, '', 'Failed to get Tags');
-  /* eslint-disable-next-line react-hooks/exhaustive-deps */
-  // return useEffect(() => fetchApiData(), []);
+  const { setIsLoadin } = useLoadinSpinnerContext();
+  return useEffect(() => {
+    setIsLoadin(true);
+    fetchApiData('tags', {}, setTags);
+    setIsLoadin(false);
+  }, [setTags, setIsLoadin]);
 };
 export default useFetchAllTags;
