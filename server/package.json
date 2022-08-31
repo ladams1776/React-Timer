@@ -9,7 +9,7 @@
     "express-mongo-sanitize": "^2.1.0",
     "express-validator": "^6.12.1",
     "log4js": "^6.4.0",
-    "moment-timezone": "^0.5.31",
+    "moment-timezone": "^0.5.35",
     "mongoose": "^5.8.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.2",
