@@ -1,12 +1,14 @@
 import React from 'react';
 import cn from 'classnames';
 import { Form, Field } from 'react-final-form'
-import { Button } from 'components';
+import { Button, TextAreaAdapter } from 'components';
 import { useSetCurrentLocation } from 'hooks'
 import useFormSetup from './useFormSetup';
 import useFetchTagByIdDispatch from './useFetchTagByIdDispatch';
 import styles from './AddTagForm.module.css';
 import useTagByIdSelector from 'redux/selectors/useTagById';
+import SaveButton from 'components/saveButton/SaveButton';
+import TopBar from 'components/topBar/TopBar';
 
 const AddTagePage = ({ tagId }) => {
     useSetCurrentLocation(`/tag/${tagId}`);
@@ -16,6 +18,9 @@ const AddTagePage = ({ tagId }) => {
 
     return (
         <div className={styles.container}>
+            <TopBar>
+                <SaveButton />
+            </TopBar>
             <Form
                 onSubmit={onSubmit}
                 initialValues={tag}
@@ -30,13 +35,8 @@ const AddTagePage = ({ tagId }) => {
                                 component="input"
                                 className={styles.name}
                             />
-                            <Field
-                                name="description"
-                                cols="80"
-                                rows="10"
-                                className={styles.description}
-                                component="textarea"
-                            />
+                            <Field name="description" component={TextAreaAdapter} />
+
                             <div className={styles.submitContainer}>
                                 <Button type="submit"
                                     className={cn("btn", "btn-primary", styles.submit)}
