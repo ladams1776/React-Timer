@@ -14,6 +14,8 @@ import useTaskByIdSelector from 'redux/selectors/useTaskByIdSelector';
 import TextAreaAdapter from 'components/TextAreaAdapter';
 import { Button } from 'components';
 import styles from './EditTaskForm.module.css';
+import SaveButton from 'components/saveButton/SaveButton';
+import TopBar from 'components/topBar/TopBar';
 
 const EditTaskForm = ({ taskId, className }) => {
   useFetchTaskByIdDispatch(taskId);
@@ -24,13 +26,11 @@ const EditTaskForm = ({ taskId, className }) => {
   const onSubmit = useSubmit();
 
   return (<div className={className} data-testid="addTaskForm">
-    <div className={styles.topButtonOutline}>
-      <div className="outline-submit">
-        <Button type="submit" className={cn(styles.submit, "glyphicon glyphicon-floppy-save")} form="editForm" />
-      </div>
+    <TopBar>
+      <SaveButton />
       <DateTimeButton taskId={taskId} />
       <Timer />
-    </div>
+    </TopBar>
     <Form
       onSubmit={onSubmit}
       initialValues={task}
@@ -42,7 +42,6 @@ const EditTaskForm = ({ taskId, className }) => {
             onSubmit={handleSubmit}
             className={styles.taskForm}
             method="PUT">
-
             <div className={styles.timeInfoContainer}>
               <div className={styles.innerLeft}>
                 <Field name="project" component="select">
