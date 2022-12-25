@@ -12,10 +12,11 @@ import { useFetchTags } from '../hooks';
 import useFetchTaskByIdDispatch from '../hooks/useFetchTaskById/useFetchTaskByIdDispatch';
 import useTaskByIdSelector from 'redux/selectors/useTaskByIdSelector';
 import TextAreaAdapter from 'components/TextAreaAdapter';
-import { Button } from 'components';
 import styles from './EditTaskForm.module.css';
 import SaveButton from 'components/saveButton/SaveButton';
 import TopBar from 'components/topBar/TopBar';
+import Selector from 'components/Selector';
+import Toggle from 'components/toggle/Toggle';
 
 const EditTaskForm = ({ taskId, className }) => {
   useFetchTaskByIdDispatch(taskId);
@@ -25,7 +26,9 @@ const EditTaskForm = ({ taskId, className }) => {
   const projectOptions = useFetchProjectOptions();
   const onSubmit = useSubmit();
 
-  return (<div className={className} data-testid="addTaskForm">
+  return (<div
+    className={className}
+    data-testid="addTaskForm">
     <TopBar>
       <SaveButton />
       <DateTimeButton taskId={taskId} />
@@ -44,13 +47,10 @@ const EditTaskForm = ({ taskId, className }) => {
             method="PUT">
             <div className={styles.timeInfoContainer}>
               <div className={styles.innerLeft}>
-                <Field name="project" component="select">
-                  {projectOptions.map(project => (
-                    <option value={project.value} key={project.value}>
-                      {project.label}
-                    </option>
-                  ))}
-                </Field>
+                <Field
+                  name="project"
+                  component={() => <Selector options={projectOptions} />}
+                />
               </div>
               <div className={cn({ [styles.innerRight]: true })}>
                 <Field name="tags" tags={tags} component={TagMultiSelect} />
