@@ -4,12 +4,10 @@ import { putTag } from 'redux/actionCreators/actions';
 const useFormSetup = () => {
     const dispatch = useDispatch();
 
-    const onSubmit = ({ _id, description, name }) => {
-        const body = { name, description, _id };
+    return  (body) => {
+        console.log('yes')
         dispatch(putTag(body));
     };
-
-    return { onSubmit };
 };
 
 export default useFormSetup;

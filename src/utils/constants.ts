@@ -5,6 +5,8 @@ export const DELETE = 'DELETE';
 
 export const TEN_SECONDS = 10000;
 
+export const TOGGLE_DARK_MODE = 'TOGGLE_DARK_MODE';
+
 // flash message
 export type FLASH_MESSAGE_TYPES = 'success' | 'error' | 'info';
 export const FLASH_MESSAGE = 'FLASH_MESSAGE'

@@ -29,11 +29,11 @@ const EditTaskForm = ({ taskId, className }) => {
   return (<div
     className={className}
     data-testid="addTaskForm">
-    <TopBar>
-      <SaveButton />
-      <DateTimeButton taskId={taskId} />
-      <Timer />
-    </TopBar>
+          <TopBar>
+            <SaveButton />
+            <DateTimeButton taskId={taskId} />
+            <Timer />
+          </TopBar>
     <Form
       onSubmit={onSubmit}
       initialValues={task}
@@ -58,6 +58,7 @@ const EditTaskForm = ({ taskId, className }) => {
             </div>
 
             <Field name="description" component={TextAreaAdapter} />
+
           </form>)
       }} />
   </div>);

@@ -11,9 +11,22 @@ import {
   FETCH_ALL_TASKS,
   FLASH_MESSAGE,
   FLASH_MESSAGE_TYPES,
+  TOGGLE_DARK_MODE,
 } from '../../utils/constants';
-import { RequestAction, RequestPostPutAction, RequestPostPutFlashAction } from 'interfaces/redux/actions';
+import {
+  DarkModeAction,
+  RequestAction,
+  RequestPostPutAction,
+  RequestPostPutFlashAction
+} from 'interfaces/redux/actions';
 import { EditDateTimeInterface } from 'interfaces/pages/tasks/Task';
+
+export const toggleDarkMode = (isDarkMode: boolean): DarkModeAction<'TOGGLE_DARK_MODE'> => {
+  return {
+    type: TOGGLE_DARK_MODE,
+    isDarkMode
+  };
+};
 
 // Tasks
 export const fetchAllTasks = (): RequestAction<'FETCH_ALL_TASKS'> => {
@@ -32,7 +45,7 @@ export const fetchTaskById = (taskId: string): RequestAction<'FETCH_TASK_BY_ID'>
   };
 };
 
-interface Body {}
+interface Body { }
 
 export const putTaskById = (body: Body): RequestPostPutFlashAction<'PUT_TASK_BY_ID'> => {
   return {
@@ -82,12 +95,13 @@ export const fetchTagById = (tagId: string): RequestAction<'FETCH_TAG_BY_ID'> =>
   };
 };
 
-export const putTag = (body: Body): RequestPostPutAction<'PUT_TAG'> => {
+export const putTag = (body: Body): RequestPostPutFlashAction<'PUT_TAG'> => {
   return {
     type: PUT_TAG,
     url: 'tag',
     method: PUT,
-    // isFlash: true,
+    isFlash: true,
+    flashMessage: 'success',
     body,
     requestApi: true,
   };
