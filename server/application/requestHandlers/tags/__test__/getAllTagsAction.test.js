@@ -17,6 +17,7 @@ describe('server/application/requestHandlers/tags/__test__/getAllTagsAction.test
           description: 'description'
         }
       }
+      
       const response = jest.fn();
 
       jsonResponse.mockReturnValue(response);
