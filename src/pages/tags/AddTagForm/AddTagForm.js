@@ -9,6 +9,7 @@ import useTagByIdSelector from 'redux/selectors/useTagById';
 import SaveButton from 'components/saveButton/SaveButton';
 import TopBar from 'components/topBar/TopBar';
 
+import './AddTagForm.module.css';
 import styles from './AddTagForm.module.css';
 
 const AddTagePage = ({ tagId }) => {
@@ -19,20 +20,20 @@ const AddTagePage = ({ tagId }) => {
 
     return (
         <div className={styles.container}>
+            <TopBar>
+                <SaveButton name="tagForm"/>
+            </TopBar>
             <Form
                 onSubmit={onSubmit}
                 initialValues={tag}
                 render={({ handleSubmit }) => {
                     return (
                         <form
-                            id="addForm"
+                            id="tagForm"
                             data-test-id="form"
                             className={styles.form}
                             onSubmit={handleSubmit}>
-                            <TopBar>
-                                <SaveButton />
-                            </TopBar>
-                            <fieldset classname={styles.formField}>
+                            <fieldset>
                                 <label htmlFor="name">Name</label>
                                 <Field
                                     name="name"

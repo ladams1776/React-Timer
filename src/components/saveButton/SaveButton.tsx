@@ -3,11 +3,14 @@ import cn from 'classnames';
 import React from 'react';
 import styles from './SaveButton.module.css';
 
-const SaveButton: React.FC = () => <Button
+interface props {
+    name: string;
+}
+const SaveButton: React.FC<props> = ({name}) => <Button
     type="submit"
     className={cn(styles.submit, "glyphicon glyphicon-floppy-save")}
     onClick={() => {
-        document.getElementById('editForm')
+        document.getElementById(name)
             ?.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }))
     }}
 />

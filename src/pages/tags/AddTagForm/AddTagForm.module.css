@@ -32,6 +32,6 @@
   flex-direction: column;
 }
 
-.formField {
+fieldset {
   border: none;
 }

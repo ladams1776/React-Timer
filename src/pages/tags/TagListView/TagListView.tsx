@@ -5,17 +5,19 @@ import Tag from './Tag/Tag';
 import styles from './TagListView.module.css';
 
 interface TagListViewProp {
-  className:string;
-  tagId:string;
+  className: string;
+  tagId: string;
   tags: TagInterface[]
 }
 
 const TagsListView: React.FC<TagListViewProp> = ({ className, tagId, tags }) => {
   return (
     <div className={className}>
-      <ul className={cn(styles.tagList, { [styles.listViewOnly]: !tagId })}>
+      <ul className={cn(styles.tagList, {
+        [styles.listViewOnly]: !tagId
+      })}>
         {tags.map((tag) => (
-          <li key={tag._id} className="tag">
+          <li key={tag._id} className={styles.tag}>
             <Tag {...tag} key={tag._id} selectedId={tagId} />
           </li>
         ))}

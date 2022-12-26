@@ -16,7 +16,6 @@ import styles from './EditTaskForm.module.css';
 import SaveButton from 'components/saveButton/SaveButton';
 import TopBar from 'components/topBar/TopBar';
 import Selector from 'components/Selector';
-import Toggle from 'components/toggle/Toggle';
 
 const EditTaskForm = ({ taskId, className }) => {
   useFetchTaskByIdDispatch(taskId);
@@ -30,7 +29,7 @@ const EditTaskForm = ({ taskId, className }) => {
     className={className}
     data-testid="addTaskForm">
           <TopBar>
-            <SaveButton />
+            <SaveButton name="taskForm"/>
             <DateTimeButton taskId={taskId} />
             <Timer />
           </TopBar>
@@ -40,7 +39,7 @@ const EditTaskForm = ({ taskId, className }) => {
       render={({ handleSubmit }) => {
         return (
           <form
-            id="editForm"
+            id="taskForm"
             data-testid="form"
             onSubmit={handleSubmit}
             className={styles.taskForm}
