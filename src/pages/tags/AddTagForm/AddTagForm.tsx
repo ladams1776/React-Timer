@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
-import cn from 'classnames';
+import React from 'react';
 import { Form, Field } from 'react-final-form'
-import { Button, TextAreaAdapter } from 'components';
-import { useSetCurrentLocation } from 'hooks'
+import { TextAreaAdapter } from 'components';
 import useFormSetup from './useFormSetup';
 import useFetchTagByIdDispatch from './useFetchTagByIdDispatch';
 import useTagByIdSelector from 'redux/selectors/useTagById';
@@ -12,8 +10,12 @@ import TopBar from 'components/topBar/TopBar';
 import './AddTagForm.module.css';
 import styles from './AddTagForm.module.css';
 
-const AddTagePage = ({ tagId }) => {
-    // useSetCurrentLocation(`/tag/${tagId}`);
+interface props {
+    tagId: string;
+}
+const formId = "tagForm";
+
+const AddTagePage: React.FC<props> = ({ tagId }) => {
     useFetchTagByIdDispatch(tagId);
     const tag = useTagByIdSelector();
     const onSubmit = useFormSetup();
@@ -21,7 +23,7 @@ const AddTagePage = ({ tagId }) => {
     return (
         <div className={styles.container}>
             <TopBar>
-                <SaveButton name="tagForm"/>
+                <SaveButton name={formId} />
             </TopBar>
             <Form
                 onSubmit={onSubmit}
@@ -29,7 +31,7 @@ const AddTagePage = ({ tagId }) => {
                 render={({ handleSubmit }) => {
                     return (
                         <form
-                            id="tagForm"
+                            id={formId}
                             data-test-id="form"
                             className={styles.form}
                             onSubmit={handleSubmit}>
@@ -42,10 +44,7 @@ const AddTagePage = ({ tagId }) => {
                                 />
                             </fieldset>
                             <fieldset>
-                                <Field
-                                    name="description"
-                                    id="description"
-                                    component={TextAreaAdapter} />
+                                <TextAreaAdapter />
                             </fieldset>
                         </form>
                     );

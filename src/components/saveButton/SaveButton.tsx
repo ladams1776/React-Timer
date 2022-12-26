@@ -1,6 +1,6 @@
+import React from 'react';
 import Button from 'components/Button';
 import cn from 'classnames';
-import React from 'react';
 import styles from './SaveButton.module.css';
 
 interface props {
