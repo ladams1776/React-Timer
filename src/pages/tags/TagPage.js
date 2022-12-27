@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import TagListView from './TagListView/TagListView';
 import AddTagForm from './AddTagForm/AddTagForm';
 import useFetchAllTags from './useFetchAllTags';
-import ControlButtons from './TagListView/ControlButtons/ControlButtons';
 import styles from './TagPage.module.css'
+import ControlButtons from './TagListView/ControlButtons/ControlButtons';
 
 const TagPage = ({ match }) => {
   const tagId = match?.params?.id;

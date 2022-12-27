@@ -11,7 +11,6 @@ import {
   FETCH_ALL_TASKS,
   FLASH_MESSAGE,
   FLASH_MESSAGE_TYPES,
-  TOGGLE_DARK_MODE,
 } from '../../utils/constants';
 import {
   DarkModeAction,
@@ -21,12 +20,6 @@ import {
 } from 'interfaces/redux/actions';
 import { EditDateTimeInterface } from 'interfaces/pages/tasks/Task';
 
-export const toggleDarkMode = (isDarkMode: boolean): DarkModeAction<'TOGGLE_DARK_MODE'> => {
-  return {
-    type: TOGGLE_DARK_MODE,
-    isDarkMode
-  };
-};
 
 // Tasks
 export const fetchAllTasks = (): RequestAction<'FETCH_ALL_TASKS'> => {

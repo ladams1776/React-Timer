@@ -1,6 +1,7 @@
 interface FetchParams {
   body?: any;
-  headers: {};
+  headers?: {};
+  method?:string
 }
 
 type dispatchParam = (data: {}) => void;

@@ -10,7 +10,6 @@ import TaskListView from './TaskListView/TaskListView';
 import ControlButtons from './TaskListView/ControlButtons/ControlButtons';
 import useFetchAllTasks from 'pages/tasks/hooks/useFetchAllTasks';
 import styles from './TaskPage.module.css';
-import Toggle from 'components/toggle/Toggle';
 
 const TaskPage = ({ match }) => {
   const taskId = match?.params?.id;
@@ -25,7 +24,7 @@ const TaskPage = ({ match }) => {
     <TagContextProvider>
       <TimeContextProvider>
         <div className={styles.container} data-testid="container">
-          <div className={cn({ [styles.navBarInnerContainer]: true })}>
+          <div className={styles.navBarInnerContainer}>
             <ControlButtons tasks={tasks} />
           </div>
           <div className={styles.mainInnerContainer}>

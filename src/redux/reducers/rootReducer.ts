@@ -6,7 +6,7 @@ import taskReducers from './taskReducers';
 const rootReducer = combineReducers({
     tasks: taskReducers,
     tags: tagReducers,
-    flash: flashReducer,
+    flash: flashReducer
 });
 
 export default rootReducer;
