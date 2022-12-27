@@ -1,6 +1,7 @@
 interface FetchParams {
   body?: any;
-  headers: {};
+  headers?: {};
+  method?:string
 }
 
 type dispatchParam = (data: {}) => void;
@@ -19,7 +20,7 @@ const fetchApiData = async (url: string, { body, ...settings }: FetchParams, dis
 
   const response = await fetch(`/api/${url}`, config);
   const data = await response.json();
-  if (data && response.ok) dispatch(data);
+  if (data) dispatch(data);
 };
 
 export default fetchApiData;

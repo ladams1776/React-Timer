@@ -3,8 +3,8 @@ const TagRepository = require('../../../infrastructure/repositories/tags/TagRepo
 const addTag = require('../../../infrastructure/repositories/tags/addTag');
 
 const TagService = {
-  fetchTagById: (tagId, res) =>
-    TagRepository.fetchTagById(tagId, res),
+  fetchTagById: async (tagId, res) =>
+    await TagRepository.fetchTagById(tagId, res),
   fetchAllTags: (res) => fetchAllTags(res),
   deleteTag: (tagId, res) =>
     TagRepository.deleteTag(tagId, res),

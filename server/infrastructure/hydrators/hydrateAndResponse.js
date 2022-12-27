@@ -6,7 +6,7 @@ const hydrateAndResponse = responder => (err, docs) => {
   err && logger.error(err);
   docs && logger.debug(`hydrated: ${docs}`);
   !item && responder({ error: err, items: [] });
-  item && responder({ items: item });
+  item && responder(item);
 };
 
 module.exports = hydrateAndResponse;

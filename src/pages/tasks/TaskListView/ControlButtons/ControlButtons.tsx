@@ -9,13 +9,14 @@ import { TaskInterface } from 'interfaces/pages/tasks/Task';
 interface ControlButtonsProps {
   tasks: TaskInterface[];
 }
-const ControlButtons: React.FC<ControlButtonsProps> = (...tasks) => (
+const ControlButtons: React.FC<ControlButtonsProps> = ({tasks}) => {
+  return (
   <div className={styles.controlButtons} data-testid="control-buttons">
     <HomeButton />
     <DownloadButton tasks={tasks} />
     <UploadButton />
     <NewButton />
   </div>
-);
+)};
 
 export default ControlButtons;

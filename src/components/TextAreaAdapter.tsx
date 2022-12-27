@@ -7,11 +7,6 @@ interface AdapterProp {
     value: string;
   };
 }
-interface TextAreaAdapterProp {
-  name: string;
-  subscription: any;
-  children: ReactChildren;
-}
 
 export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
   const { onChange, value } = rest.input;
@@ -54,16 +49,16 @@ export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
   );
 };
 
-const TextAreaAdapter: React.FC<TextAreaAdapterProp> = ({ subscription }) => {
+const TextAreaAdapter: React.FC = () => {
   const comp = navigator.onLine ? (
-    <Field name="description" subscription={subscription}>
+    <Field name="description" id="description" >
       {({ ...rest }) => <Adapter {...rest} />}
     </Field>
   ) : (
-    <Field name="description" subscription={subscription}>
+    <Field name="description" id="description" >
       {({ ...rest }) => {
         const { onChange, value } = rest.input;
-        return <textarea name="description" onChange={onChange} value={value} {...rest} />;
+        return <textarea name="description"id="description"   onChange={onChange} value={value} {...rest} />;
       }}
     </Field>
   );

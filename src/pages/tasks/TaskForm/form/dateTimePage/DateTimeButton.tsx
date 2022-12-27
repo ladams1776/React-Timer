@@ -12,7 +12,7 @@ const DateTimeButton: React.FC<DateTimeButtonProp> = ({ taskId }) => {
   const [isShowing, setIsShowing] = useState(false);
 
   return (
-    <div className={cn({[styles.outline]: true })}>
+    <div className={cn(styles.outline)}>
       <Button className={cn(styles.dateTimeButton, 'glyphicon glyphicon-time')} onClick={() => setIsShowing(!isShowing)} />
 
       {isShowing ? (

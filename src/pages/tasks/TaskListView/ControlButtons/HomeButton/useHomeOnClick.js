@@ -1,6 +1,6 @@
 import { useBrowserHistory } from 'hooks';
 
-export const URL = '/tag/-1';
+export const URL = '/tag';
 
 const useHomeOnClick = () => {
     const { push } = useBrowserHistory();
