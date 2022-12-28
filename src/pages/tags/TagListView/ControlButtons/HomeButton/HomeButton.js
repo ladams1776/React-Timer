@@ -6,7 +6,7 @@ import styles from './HomeButton.module.css';
 
 const HomeButton = () => {
     const { push } = useBrowserHistory();
-    return <Button className={cn(styles.buttonAdd, "glyphicon glyphicon-home")}
+    return <Button className={cn(styles.buttonAdd, "glyphicon glyphicon-list-alt")}
         onClick={() => {
             sessionStorage.setItem('LOCATION', '/');
             push("/");

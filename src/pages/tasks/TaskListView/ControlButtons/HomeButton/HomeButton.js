@@ -6,7 +6,7 @@ import styles from './HomeButton.module.css';
 
 const HomeButton = () => {
     const onClick = useHomeOnClick();
-    return <Button className={cn(styles.buttonAdd, "glyphicon glyphicon-home")}
+    return <Button className={cn(styles.buttonAdd, "glyphicon glyphicon-tag")}
         title="Tags"
         onClick={onClick} 
         data-testid="homeButton"/>
