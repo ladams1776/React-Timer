@@ -2,10 +2,7 @@ const Tag = require('../../models/Tag');
 const hydrateAndResponse = require('../../hydrators/hydrateAndResponse');
 
 const TagRepository = {
-  deleteTag: (id, res) => Tag.deleteOne(
-    { _id: id },
-    hydrateAndResponse(res)
-  ),
+  deleteTag: (id) => Tag.deleteOne({ _id: id }),
   fetchTagById: async (id, res) => await Tag.findById(id),
 
   updateTag: async (dto, res) => {

@@ -11,10 +11,12 @@ import {
   FETCH_ALL_TASKS,
   FLASH_MESSAGE,
   FLASH_MESSAGE_TYPES,
+  DELETE,
+  DELETE_TAG,
 } from '../../utils/constants';
 import {
-  DarkModeAction,
   RequestAction,
+  RequestDeleteAction,
   RequestPostPutAction,
   RequestPostPutFlashAction
 } from 'interfaces/redux/actions';
@@ -30,13 +32,11 @@ export const fetchAllTasks = (): RequestAction<'FETCH_ALL_TASKS'> => {
   };
 };
 
-export const fetchTaskById = (taskId: string): RequestAction<'FETCH_TASK_BY_ID'> => {
-  return {
-    type: FETCH_TASK_BY_ID,
-    url: `task/${taskId}`,
-    requestApi: true,
-  };
-};
+export const fetchTaskById = (taskId: string): RequestAction<'FETCH_TASK_BY_ID'> => ({
+  type: FETCH_TASK_BY_ID,
+  url: `task/${taskId}`,
+  requestApi: true,
+});
 
 interface Body { }
 
@@ -72,33 +72,27 @@ export const putDateTime = (config: Config): RequestPostPutAction<'UPDATE_DATE_T
 };
 
 // Tags
-export const fetchAllTags = (): RequestAction<'FETCH_ALL_TAGS'> => {
-  return {
-    type: FETCH_ALL_TAGS,
-    url: `tags`,
-    requestApi: true,
-  };
-};
+export const fetchAllTags = (): RequestAction<'FETCH_ALL_TAGS'> => ({
+  type: FETCH_ALL_TAGS,
+  url: 'tags',
+  requestApi: true,
+});
 
-export const fetchTagById = (tagId: string): RequestAction<'FETCH_TAG_BY_ID'> => {
-  return {
-    type: FETCH_TAG_BY_ID,
-    url: `tag/${tagId}`,
-    requestApi: true,
-  };
-};
+export const fetchTagById = (tagId: string): RequestAction<'FETCH_TAG_BY_ID'> => ({
+  type: FETCH_TAG_BY_ID,
+  url: `tag/${tagId}`,
+  requestApi: true,
+});
 
-export const putTag = (body: Body): RequestPostPutFlashAction<'PUT_TAG'> => {
-  return {
-    type: PUT_TAG,
-    url: 'tag',
-    method: PUT,
-    isFlash: true,
-    flashMessage: 'success',
-    body,
-    requestApi: true,
-  };
-};
+export const putTag = (body: Body): RequestPostPutFlashAction<'PUT_TAG'> => ({
+  type: PUT_TAG,
+  url: 'tag',
+  method: PUT,
+  isFlash: true,
+  flashMessage: 'success',
+  body,
+  requestApi: true,
+});
 
 export const postTag = (body: Body): RequestPostPutAction<'POST_TAG'> => ({
   type: POST_TAG,
@@ -106,6 +100,14 @@ export const postTag = (body: Body): RequestPostPutAction<'POST_TAG'> => ({
   method: POST,
   // isFlash: true,
   body,
+  requestApi: true,
+});
+
+export const deleteTag = (id: string): RequestDeleteAction<'DELETE_TAG'> => ({
+  type: DELETE_TAG,
+  url: `tag/${id}`,
+  method: DELETE,
+  isFlash: true,
   requestApi: true,
 });
 

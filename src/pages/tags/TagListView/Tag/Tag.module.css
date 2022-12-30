@@ -1,5 +1,6 @@
 li {
   list-style: none;
+  cursor: pointer;
 }
 
 .container {
@@ -8,6 +9,11 @@ li {
   background-color: rgb(255, 255, 255);
   color: #3b3b3b;
   margin-top: -1px; /* Need to make the task top overlap underBorder (of previous task). This allows us to blend it into the selected task. */
+}
+
+.container:hover {
+  background-color: rgb(245, 245, 245);
+
 }
 
 .item,
