@@ -4,19 +4,23 @@ import React from 'react';
 import Tag from './Tag/Tag';
 import styles from './TagListView.module.css';
 
-interface TagListViewProp {
-  className: string;
+interface props {
+  classNames: string;
   tagId: string;
-  tags: TagInterface[]
+  tags?: TagInterface[]
 }
-
-const TagsListView: React.FC<TagListViewProp> = ({ className, tagId, tags }) => {
+/**
+ * @TODO: Move the className into here, why bother passing it in unless we want to reuse this ListView.
+ * @param param0 
+ * @returns 
+ */
+const TagsListView: React.FC<props> = ({ classNames, tagId, tags }) => {
   return (
-    <div className={className}>
+    <div className={classNames}>
       <ul className={cn(styles.tagList, {
         [styles.listViewOnly]: !tagId
       })}>
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <li key={tag._id} className={styles.tag}>
             <Tag {...tag} key={tag._id} selectedId={tagId} />
           </li>

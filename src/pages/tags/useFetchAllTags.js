@@ -1,18 +1,13 @@
 import { useEffect } from 'react';
-import { fetchApiData } from 'utils';
-import { useLoadinSpinnerContext } from 'hooks';
+import { useDispatch } from 'react-redux';
+import { fetchAllTags } from 'redux/actionCreators/actions';
 
-const useFetchAllTags = setTags => {
-  const { setIsLoadin } = useLoadinSpinnerContext();
+const useFetchAllTags = () => {
+  const dispatch = useDispatch();
 
-  return useEffect(() => {
-    setIsLoadin(true);
-    fetchApiData('tags', {}, (data) => {
-      console.log('fetchApiData', data)
-      setTags(data.items)
-    });
-    setIsLoadin(false);
-  }, [setTags, setIsLoadin]);
+  useEffect(() => {
+    dispatch(fetchAllTags());
+  }, []);
   // const fetchApiData = useFlashMessageFetchApiData('tags', {}, setTags, '', 'Failed to get Tags');
   /* eslint-disable-next-line react-hooks/exhaustive-deps */
   // return useEffect(() => fetchApiData(), []);

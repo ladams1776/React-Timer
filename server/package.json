@@ -20,6 +20,8 @@
   "proxy": "http://172.28.1.3:3001",
   "scripts": {
     "server": "nodemon server.js",
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js",
     "test": "jest --watch"
   },
   "devDependencies": {
