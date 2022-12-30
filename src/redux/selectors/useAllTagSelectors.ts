@@ -1,21 +1,13 @@
 import { useSelector } from "react-redux";
 
-const useAllTagSelectors = () => {
-    return useSelector((state: State): ReturnedState => {
-        return {
-            ...state.tasks.allTags,
-        };
-    });
-};
-
-export default useAllTagSelectors;
-
 interface State {
-    tasks: {
+    tags: {
         allTags: []
     }
 }
 
-interface ReturnedState {
-    
-}
+interface ReturnedState {}
+const useAllTagSelectors = () => useSelector((state: State): ReturnedState => state.tags.allTags);
+
+export default useAllTagSelectors;
+

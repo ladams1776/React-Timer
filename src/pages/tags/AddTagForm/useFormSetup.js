@@ -5,7 +5,6 @@ const useFormSetup = () => {
     const dispatch = useDispatch();
 
     return  (body) => {
-        console.log('yes')
         dispatch(putTag(body));
     };
 };
