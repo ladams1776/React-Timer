@@ -17,15 +17,15 @@ interface props {
 const TagsListView: React.FC<props> = ({ classNames, tagId, tags }) => {
   return (
     <div className={classNames}>
-      {tags && (<ul className={cn(styles.tagList, {
+      <ul className={cn(styles.tagList, {
         [styles.listViewOnly]: !tagId
       })}>
-        {tags.map((tag) => (
+        {tags?.map((tag) => (
           <li key={tag._id} className={styles.tag}>
             <Tag {...tag} key={tag._id} selectedId={tagId} />
           </li>
         ))}
-      </ul>)}
+      </ul>
     </div>
   );
 };
