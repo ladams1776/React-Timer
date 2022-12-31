@@ -1,6 +1,6 @@
 import React from 'react';
 import TagListView from './TagListView/TagListView';
-import AddTagForm from './AddTagForm/AddTagForm';
+import AddTagForm from './TagForm/TagForm';
 import styles from './TagPage.module.css'
 import ControlButtons from './TagListView/ControlButtons/ControlButtons';
 import useAllTagSelectors from 'redux/selectors/useAllTagSelectors';

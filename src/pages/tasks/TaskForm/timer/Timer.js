@@ -16,7 +16,7 @@ const Timer = () => {
   useUpdateCurrentTime(time, isActive, setTimeCallback);
   const msTime = (time && ms(time, { secondsDecimalDigits: 2 })) || 0;
 
-  const original = task?.time && ms(task.time, { secondsDecimalDigits: 2 }) || 0
+  const original = (task?.time && ms(task.time, { secondsDecimalDigits: 2 })) || 0
   return <TimerButtons
     time={time}
     setTime={setTimeCallback}

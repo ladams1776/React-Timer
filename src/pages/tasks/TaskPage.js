@@ -5,7 +5,7 @@ import { useSetCurrentLocation } from 'hooks';
 import useTaskRefs from './hooks/useTaskRefs';
 import TagContextProvider from './TaskForm/contexts/TagContext';
 import TimeContextProvider from './TaskForm/contexts/TimeContext';
-import EditTaskForm from './TaskForm/form/EditTaskForm';
+import EditTaskForm from './TaskForm/taskForm/TaskForm';
 import TaskListView from './TaskListView/TaskListView';
 import ControlButtons from './TaskListView/ControlButtons/ControlButtons';
 import useFetchAllTasks from 'pages/tasks/hooks/useFetchAllTasks';

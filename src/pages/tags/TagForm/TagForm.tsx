@@ -1,29 +1,32 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form'
 import { TextAreaAdapter } from 'components';
-import useFormSetup from './useFormSetup';
-import useFetchTagByIdDispatch from './useFetchTagByIdDispatch';
+import useFormSetup from './hooks/useFormSetup';
+import useFetchTagByIdDispatch from './hooks/useFetchTagByIdDispatch';
 import useTagByIdSelector from 'redux/selectors/useTagById';
 import SaveButton from 'components/saveButton/SaveButton';
 import TopBar from 'components/topBar/TopBar';
 
-import './AddTagForm.module.css';
-import styles from './AddTagForm.module.css';
+//@TODO: Got to clean this stuff up
+import './TagForm.module.css';
+import styles from './TagForm.module.css';
+import useSaveListener from 'hooks/useListenForSave';
 
 interface props {
     tagId: string;
 }
-const formId = "tagForm";
+const FORM_ID = "tagForm";
 
-const AddTagePage: React.FC<props> = ({ tagId }) => {
+const TagPage: React.FC<props> = ({ tagId }) => {
     useFetchTagByIdDispatch(tagId);
     const tag = useTagByIdSelector();
     const onSubmit = useFormSetup();
+    useSaveListener(FORM_ID);
 
     return (
         <div className={styles.container}>
             <TopBar>
-                <SaveButton name={formId} />
+                <SaveButton name={FORM_ID}/>
             </TopBar>
             <Form
                 onSubmit={onSubmit}
@@ -31,7 +34,7 @@ const AddTagePage: React.FC<props> = ({ tagId }) => {
                 render={({ handleSubmit }) => {
                     return (
                         <form
-                            id={formId}
+                            id={FORM_ID}
                             data-test-id="form"
                             className={styles.form}
                             onSubmit={handleSubmit}>
@@ -54,4 +57,4 @@ const AddTagePage: React.FC<props> = ({ tagId }) => {
     );
 }
 
-export default AddTagePage;
+export default TagPage;

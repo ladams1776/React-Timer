@@ -1,9 +1,9 @@
 import React from "react";
 import { fireEvent, render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import useFormSetup from '../useFormSetup';
+import useFormSetup from '../hooks/useFormSetup';
 import useSetCurrentLocation from 'hooks/useSetCurrentLocation';
-import AddTagForm from '../AddTagForm';
+import AddTagForm from '../TagForm';
 
 // import React from 'react';
 // import { createWrapperWithContext } from 'testUtils';
