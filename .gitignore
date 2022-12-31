@@ -7,3 +7,4 @@ log.log
 error.log
 debug.log
 .eslintcache
+server/config.js
