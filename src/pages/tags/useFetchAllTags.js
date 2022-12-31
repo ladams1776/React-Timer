@@ -7,9 +7,6 @@ const useFetchAllTags = () => {
 
   useEffect(() => {
     dispatch(fetchAllTags());
-  }, []);
-  // const fetchApiData = useFlashMessageFetchApiData('tags', {}, setTags, '', 'Failed to get Tags');
-  /* eslint-disable-next-line react-hooks/exhaustive-deps */
-  // return useEffect(() => fetchApiData(), []);
+  }, [dispatch]);
 };
 export default useFetchAllTags;

@@ -3,11 +3,11 @@ import { fetchApiDataWithFlashMessageAndReduxActions, fetchApiDataWithReduxActio
 const apiMiddleware = (reduxStore: any): Function => {
   const { dispatch } = reduxStore;
 
-  return (next: (action: action) => void) => (action: action) => {
+  return (next: (action: action) => void) => async (action: action) => {
     const { type, url, method, requestApi, isFlash, body } = action;
 
     if (type && requestApi && isFlash) {
-      return fetchApiDataWithFlashMessageAndReduxActions(url, { method, body }, dispatch);
+      return await fetchApiDataWithFlashMessageAndReduxActions(url, { method, body }, dispatch);
     } else if (type && requestApi) {
       return fetchApiDataWithReduxActions(url, { method, body }, dispatch);
     } else {

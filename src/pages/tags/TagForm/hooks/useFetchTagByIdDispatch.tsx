@@ -7,7 +7,7 @@ const useFetchTagByIdDispatch = (tagId: string): void => {
 
   return React.useEffect(() => {
     dispatch(fetchTagById(tagId));
-  }, [tagId]);
+  }, [tagId, dispatch]);
 };
 
 export default useFetchTagByIdDispatch;

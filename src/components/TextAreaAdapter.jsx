@@ -1,14 +1,14 @@
-import React, { ReactChildren } from 'react';
+import React from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { Field } from 'react-final-form';
-interface AdapterProp {
-  input: {
-    onChange: (event: any) => void;
-    value: string;
-  };
-}
+// interface AdapterProp {
+//   input: {
+//     onChange: (event: any) => void;
+//     value: string;
+//   };
+// }
 
-export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
+export const Adapter  = ({ ...rest }) => {
   const { onChange, value } = rest.input;
 
   const toolbar =
@@ -19,7 +19,7 @@ export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
     'insertdatetime media table paste code help wordcount',
   ];
 
-  const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
+  const [screenWidth] = React.useState(window.innerWidth);
 
   const init = screenWidth < 600
     ? {
@@ -49,7 +49,7 @@ export const Adapter: React.FC<AdapterProp> = ({ ...rest }) => {
   );
 };
 
-const TextAreaAdapter: React.FC = () => {
+const TextAreaAdapter = () => {
   const comp = navigator.onLine ? (
     <Field name="description" id="description" >
       {({ ...rest }) => <Adapter {...rest} />}
