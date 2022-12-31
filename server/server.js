@@ -41,8 +41,8 @@ mongoose.connection
   });
 
 
-app.listen(3002, () => {
-  console.debug('Backend has started on port 3002');
+app.listen(serverConfig().serverPort, () => {
+  console.debug(`Backend has started on port ${serverConfig().serverPort}`);
 });
 
 // log all requests to access.log
