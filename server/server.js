@@ -7,12 +7,10 @@ const app = express();
 const mongoose = require('mongoose');
 const fileupload = require("express-fileupload");
 const mongoSanitize = require('express-mongo-sanitize');
-
-// @TODO: Move the username and password out of here
-const SERVER_AND_PORT = 'admin-user:admin-password@localhost:27017';
+const serverConfig = require('./config');
 
 const config = {
-  db: `mongodb://${SERVER_AND_PORT}`,
+  db: `mongodb://${serverConfig().mongoServerAndPort}`,
   opts: {
     reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
     reconnectInterval: 500, // Reconnect every 500ms
@@ -35,7 +33,7 @@ mongoose.Promise = global.Promise;
 mongoose.connection
   .on('connected', () => {
     console.log(
-      `Mongoose connection open on mongodb://${SERVER_AND_PORT}/tasks`,
+      `Mongoose connection open on mongodb://${serverConfig().mongoServerAndPort}/tasks`,
     );
   })
   .on('error', err => {
@@ -43,8 +41,8 @@ mongoose.connection
   });
 
 
-app.listen(3001, () => {
-  console.debug('Backend has started on port 3001');
+app.listen(3002, () => {
+  console.debug('Backend has started on port 3002');
 });
 
 // log all requests to access.log
