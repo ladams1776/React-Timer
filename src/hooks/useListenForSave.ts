@@ -1,6 +1,6 @@
 import useEventListener from "hooks/useEventListener";
 
-const useSaveListener = (formName:string) => {
+const useListenForSave = (formName:string) => {
     let isControlPressed = false;
     useEventListener('keydown', ({ key }: any) => {
         if (key === 'Control') {
@@ -16,4 +16,4 @@ const useSaveListener = (formName:string) => {
     });
 };
 
-export default useSaveListener;
+export default useListenForSave;

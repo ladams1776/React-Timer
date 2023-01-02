@@ -1,13 +1,18 @@
 import { useSelector } from "react-redux";
 
+interface ReturnedState {
+    _id: string;
+    description: string;
+    name: string;
+};
+
 interface State {
     tags: {
-        allTags: []
+        allTags: ReturnedState[]
     }
-}
+};
 
-interface ReturnedState {}
-const useAllTagSelectors = () => useSelector((state: State): ReturnedState => state.tags.allTags);
+const useAllTagSelectors = () => useSelector((state: State): ReturnedState[] => state.tags.allTags);
 
 export default useAllTagSelectors;
 

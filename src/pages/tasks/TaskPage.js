@@ -5,10 +5,11 @@ import { useSetCurrentLocation } from 'hooks';
 import useTaskRefs from './hooks/useTaskRefs';
 import TagContextProvider from './TaskForm/contexts/TagContext';
 import TimeContextProvider from './TaskForm/contexts/TimeContext';
-import EditTaskForm from './TaskForm/taskForm/TaskForm';
+import TaskForm from './TaskForm/taskForm/TaskForm';
 import TaskListView from './TaskListView/TaskListView';
 import ControlButtons from './TaskListView/ControlButtons/ControlButtons';
 import useFetchAllTasks from 'pages/tasks/hooks/useFetchAllTasks';
+
 import styles from './TaskPage.module.css';
 
 const TaskPage = ({ match }) => {
@@ -37,7 +38,7 @@ const TaskPage = ({ match }) => {
               }
               )} />
             {(taskId)
-              ? <EditTaskForm
+              ? <TaskForm
                 taskId={taskId}
                 className={styles.form}
                 data-testid="addTaskForm"

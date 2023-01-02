@@ -1,6 +1,8 @@
 import React from 'react';
 import { MultiSelectAdapter } from 'components';
-import { useTagContext, useTagTransformer } from '../hooks';
+import { useTagTransformer } from '../hooks';
+import useAllTagSelectors from 'redux/selectors/useAllTagSelectors';
+
 import styles from './TagMultiSelect.module.css';
 
 interface TagMultiSelectProps {
@@ -9,18 +11,18 @@ interface TagMultiSelectProps {
 }
 
 const TagMultiSelect: React.FC<TagMultiSelectProps> = ({ tags, input, ...rest }) => {
-  const { allTags } = useTagContext();
+  const allTags = useAllTagSelectors();
   const transformedTags = useTagTransformer(allTags);
   const initialTags = useTagTransformer(tags);
 
-  return <MultiSelectAdapter 
-            className={styles.select} 
-            data-testid="tag-multi-select" 
-            name="tags" 
-            input={input}
-            options={transformedTags} 
-            value={initialTags} 
-            {...rest} />;
+  return <MultiSelectAdapter
+    className={styles.select}
+    data-testid="tag-multi-select"
+    name="tags"
+    input={input}
+    options={transformedTags}
+    value={initialTags}
+    {...rest} />;
 };
 
 export default TagMultiSelect;
