@@ -1,31 +1,29 @@
 /* eslint-disable no-useless-computed-key */
 import React from 'react';
-import cn from 'classnames';
 import PropTypes from "prop-types";
 import { Form, Field } from 'react-final-form'
 import { useSubmit } from '../hooks';
-import { useFetchProjectOptions } from 'hooks';
+import { useFetchProjectOptions, useListenForSave } from 'hooks';
 import TagMultiSelect from 'pages/tasks/TaskForm/tagMultiSelect/TagMultiSelect';
 import Timer from 'pages/tasks/TaskForm/timer/Timer';
 import DateTimeButton from './dateTimePage/DateTimeButton';
 import useFetchTaskByIdDispatch from '../hooks/useFetchTaskById/useFetchTaskByIdDispatch';
 import useTaskByIdSelector from 'redux/selectors/useTaskByIdSelector';
-import TextAreaAdapter from 'components/TextAreaAdapter';
-import styles from './EditTaskForm.module.css';
-import SaveButton from 'components/saveButton/SaveButton';
-import TopBar from 'components/topBar/TopBar';
-import Selector from 'components/Selector';
-import useSaveListener from 'hooks/useListenForSave';
+import TextAreaAdapter from 'components/textAreaAdapter/TextAreaAdapter';
+import { Dropdown, TopBar, SaveButton } from 'components';
+import useTagsToOptions from 'pages/tasks/hooks/useTagsToOptions';
+
+import styles from './TaskForm.module.css';
 
 const FORM_ID = "taskForm";
 
-const EditTaskForm = ({ taskId, className }) => {
+const TaskForm = ({ taskId, className }) => {
   useFetchTaskByIdDispatch(taskId);
+  const tags = useTagsToOptions();
   const task = useTaskByIdSelector();
-  const { tags } = task;
   const projectOptions = useFetchProjectOptions();
   const onSubmit = useSubmit();
-  useSaveListener(FORM_ID);
+  useListenForSave(FORM_ID);
 
   return (<div
     className={className}
@@ -46,28 +44,17 @@ const EditTaskForm = ({ taskId, className }) => {
             onSubmit={handleSubmit}
             className={styles.taskForm}
             method="PUT">
-            <div className={styles.timeInfoContainer}>
-              <div className={styles.innerLeft}>
-                <Field
-                  name="project"
-                  component={() => <Selector options={projectOptions} />}
-                />
-              </div>
-              <div className={cn({ [styles.innerRight]: true })}>
-                <Field name="tags" tags={tags} component={TagMultiSelect} />
-              </div>
-            </div>
-
+            <Field name="project" component={() => <Dropdown options={projectOptions} />} />
             <Field name="description" component={TextAreaAdapter} />
-
+            <Field name="tags" tags={tags} component={TagMultiSelect} />
           </form>)
       }} />
   </div>);
 };
 
-EditTaskForm.propTypes = {
+TaskForm.propTypes = {
   taskId: PropTypes.string,
   className: PropTypes.string
 }
 
-export default EditTaskForm;
+export default TaskForm;

@@ -1,6 +1,7 @@
 import React from 'react';
 import MultiSelect from 'react-multi-select-component';
-import { useTagTransformer } from '../pages/tasks/TaskForm/hooks';
+import { useTagTransformer } from 'pages/tasks/TaskForm/hooks';
+
 
 interface InputProp {
   onChange: () => void;
@@ -10,7 +11,7 @@ interface InputProp {
 interface MultiSelectProp {
   input: InputProp;
   options: any; // fill this in
-  name: string; 
+  name: string;
   value: any; // fill this in
   className: string;
 }
@@ -19,7 +20,13 @@ const MultiSelectAdapter: React.FC<MultiSelectProp> = ({ ...rest }) => {
   const { onChange, value } = rest.input;
   const values = useTagTransformer(value) || [];
 
-  return <MultiSelect {...rest} labelledBy={'Select'} value={values} onChange={onChange} data-testid="multi-select" />;
+  return <MultiSelect
+    {...rest}
+    labelledBy={'Select'}
+    value={values}
+    onChange={onChange}
+    data-testid="multi-select"
+  />;
 };
 
 export default MultiSelectAdapter;

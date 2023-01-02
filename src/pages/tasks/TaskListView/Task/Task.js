@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { fetchApiData } from 'utils';
 import { useBrowserHistory, useGetProjectOptionLabel } from 'hooks';
 import DeleteTaskButton from './DeleteTaskButton/DeleteTaskButton';
-import useUpdateWhenLeave from '../../TaskForm/hooks/useSubmit/useUpdateWhenLeave';
+
 import styles from './Task.module.css';
 
 const Task = ({ _id, description, contractId, selectedId, setTasks }) => {
@@ -12,7 +12,7 @@ const Task = ({ _id, description, contractId, selectedId, setTasks }) => {
   const title = description?.split("\n")[0];
   const projectOptionLabel = useGetProjectOptionLabel(contractId);
   const isSelected = selectedId === _id;
-  const onDispatchWhenLeave = useUpdateWhenLeave();
+
 
   return (
     <div className={styles.taskContainer}>
@@ -20,11 +20,9 @@ const Task = ({ _id, description, contractId, selectedId, setTasks }) => {
         <div
           className={styles.taskItemLeft}
           onClick={() => {
-            onDispatchWhenLeave();
             sessionStorage.setItem('LOCATION', `/task/${_id}`);
             push(`/task/${_id}`);
             fetchApiData('tasks', {}, setTasks);
-            // window.location.reload();
           }}
         >
           <div

@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import MultiSelectAdapter from '../MultiSelectAdapter';
+import MultiSelectAdapter from '../multiSelectAdapter/MultiSelectAdapter';
 
 jest.mock('react-multi-select-component', () => {
   return () => <div data-testid="multi-select" >MultiSelect</div>;

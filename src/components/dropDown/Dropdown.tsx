@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './Dropdown.module.css';
+
 interface props {
     options: [{
         label: string;
@@ -7,8 +9,8 @@ interface props {
     }]
 }
 
-const Selector: React.FC<props> = ({ options }) => {
-    return (<select>
+const Dropdown: React.FC<props> = ({ options }) => {
+    return (<select className={styles.dropDown}>
         {options.map(project => (
             <option value={project.value} key={project.value}>
                 {project.label}
@@ -17,4 +19,4 @@ const Selector: React.FC<props> = ({ options }) => {
     </select>);
 };
 
-export default Selector;
+export default Dropdown;

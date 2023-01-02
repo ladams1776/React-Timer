@@ -1,4 +1,6 @@
 .select {
     border: rgba(200,200,200) 2px solid;
     border-radius: 4px;
+    font-size: 18px;
+    padding: 4px;
 }

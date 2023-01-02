@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { getCurrentDateTimeEstFormat } from 'utils';
-import { useTimeContext, useTagContext } from '..';
+import { useTimeContext } from '..';
 import { putTaskById } from 'redux/actionCreators/actions';
 import hydrateTaskForm from './hydrateTaskForm';
+import useAllTagSelectors from 'redux/selectors/useAllTagSelectors';
 
 interface taskDtoInterface {
   _id: string;
@@ -11,7 +12,7 @@ interface taskDtoInterface {
   tags: any[];
 }
 const useSubmit = (): ((task: taskDtoInterface) => void) => {
-  const { allTags } = useTagContext();
+  const allTags  = useAllTagSelectors();
   const dispatch = useDispatch();
   const { time } = useTimeContext();
 

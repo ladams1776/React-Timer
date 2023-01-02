@@ -10,7 +10,7 @@ import TopBar from 'components/topBar/TopBar';
 //@TODO: Got to clean this stuff up
 import './TagForm.module.css';
 import styles from './TagForm.module.css';
-import useSaveListener from 'hooks/useListenForSave';
+import useListenForSave from 'hooks/useListenForSave';
 
 interface props {
     tagId: string;
@@ -21,7 +21,7 @@ const TagPage: React.FC<props> = ({ tagId }) => {
     useFetchTagByIdDispatch(tagId);
     const tag = useTagByIdSelector();
     const onSubmit = useFormSetup();
-    useSaveListener(FORM_ID);
+    useListenForSave(FORM_ID);
 
     return (
         <div className={styles.container}>
