@@ -58,7 +58,7 @@ const TextAreaAdapter = () => {
     <Field name="description" id="description" >
       {({ ...rest }) => {
         const { onChange, value } = rest.input;
-        return <textarea name="description"id="description"   onChange={onChange} value={value} {...rest} />;
+        return <textarea name="description" id="description"   onChange={onChange} value={value} {...rest} />;
       }}
     </Field>
   );
