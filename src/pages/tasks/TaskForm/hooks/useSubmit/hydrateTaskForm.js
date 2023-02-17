@@ -11,7 +11,7 @@ const hydrateTaskForm = (id, tags, project, description, dateFormatted, time, ta
         time,
         contractId: project || 0,
         description,
-        tags: selectedTags,
+        tags: [selectedTags],
       },
     ],
   };

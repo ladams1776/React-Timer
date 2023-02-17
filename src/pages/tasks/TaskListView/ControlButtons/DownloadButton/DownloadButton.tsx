@@ -15,7 +15,12 @@ const DownloadButton: React.FC<DownloadButtonProps> = (...tasks) => {
   return (
     <>
       {tasks?.length && (
-        <Button data-testid="btn-download" title="Download Tasks" type="a" className={cn(styles.buttonDownload, 'glyphicon glyphicon-download-alt')} onClick={handleDownload} />
+        <Button
+          data-testid="btn-download"
+          title="Download Tasks"
+          type="a"
+          className={cn(styles.buttonDownload, 'glyphicon glyphicon-download-alt')}
+          onClick={handleDownload} />
       )}
     </>
   );
